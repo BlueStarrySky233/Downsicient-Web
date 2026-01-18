@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install | 安装</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin="">
+    <link
+        href="https://fonts.loli.net/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Geist:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Regular.min.css" />
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css" />
+    <link rel="icon" href="./icon.png" />
+    <link rel="stylesheet" href="index.css" /> <!-- Shared CSS -->
+</head>
+
+<body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200 lang-en">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center transition">
+        <a href="./index.html" class="text-xl font-semibold tracking-tight text-white flex items-center gap-2">
+            <span class="w-6 h-6"><img src="icon.png" alt="Logo"></span>
+            Down'sicient
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-neutral-300">
+            <a href="./index.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Home</span>
+                <span class="lang-zh">主页</span>
+            </a>
+            <a href="./install.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Install</span>
+                <span class="lang-zh">安装</span>
+            </a>
+            <a href="./privacy.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Privacy Policy</span>
+                <span class="lang-zh">隐私政策</span>
+            </a>
+            <a href="./tos.html" class="hover:text-white transition-colors">
+                <span class="lang-en">ToS</span>
+                <span class="lang-zh">服务条款</span>
+            </a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleLang()"
+                class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
+                <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
+                <span class="lang-en">EN</span>
+                <span class="lang-zh">中</span>
+            </button>
+            <a href="#"
+                class="text-sm font-medium text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                <span class="lang-en">Login</span>
+                <span class="lang-zh">登录</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Latest Version – Hero-Like Block (Big & Prominent) -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/10 background-circle rounded-full blur-[120px] opacity-40">
+            </div>
+            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl w-full text-center space-y-10">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-cyan-400 mb-6 reveal-on-scroll">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+                <span class="lang-en">Latest Version: v1.0.0</span>
+                <span class="lang-zh">最新版本：v1.0.0</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white">
+                <span class="block overflow-hidden">
+                    <span class="char-reveal lang-en" style="animation-delay: 0.1s;">Install</span>
+                    <span class="char-reveal lang-en italic text-cyan-500/90" style="animation-delay: 0.2s;">Now</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal lang-zh title-zh" style="animation-delay: 0.1s;">立即</span>
+                    <span class="char-reveal lang-zh title-zh text-cyan-500/90"
+                        style="animation-delay: 0.2s;">安装</span>
+                </span>
+            </h1>
+
+            <p
+                class="max-w-3xl mx-auto text-2xl md:text-3xl text-neutral-300 font-light leading-relaxed reveal-on-scroll delay-300 lang-en">
+                <span>Time is Yours, Again.</span>
+            </p>
+
+            <p
+                class="max-w-3xl mx-auto text-2xl md:text-3xl text-neutral-300 font-light leading-relaxed reveal-on-scroll delay-300 lang-zh">
+                <span>时间，完璧归赵。</span>
+            </p>
+
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 reveal-on-scroll delay-300 lang-en">
+                <button
+                    class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
+                    Install Latest
+                    <iconify-icon icon="lucide:arrow-right"
+                        class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
+                        width="18"></iconify-icon>
+                </button>
+                <button
+                    class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
+                    <iconify-icon icon="tabler:book" width="20"></iconify-icon>
+                    <a href="#guide">View Full Guide</a>
+                </button>
+            </div>
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 reveal-on-scroll delay-300 lang-zh">
+                <button
+                    class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
+                    安装最新版
+                    <iconify-icon icon="lucide:arrow-right"
+                        class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
+                        width="18"></iconify-icon>
+                </button>
+                <button
+                    class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
+                    <iconify-icon icon="lucide:play-circle" width="20"></iconify-icon>
+                    <a href="#guide">查看完整指南</a>
+                </button>
+            </div>
+
+            <p class="text-neutral-400 mt-8 text-lg reveal-on-scroll delay-300 lang-en">
+                <span>Free · Takes under a minute · Requires Tampermonkey </span>
+            </p>
+
+            <p class="text-neutral-400 mt-8 text-lg reveal-on-scroll delay-300 lang-zh">
+                <span>免费 · 不到一分钟 · 需要 Tampermonkey </span>
+            </p>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-neutral-500 animate-bounce">
+            <iconify-icon icon="lucide:arrow-down" width="24"></iconify-icon>
+        </div>
+    </section>
+
+    <!-- Other Versions – Vertical Stacked Rows -->
+    <section class="py-16 px-4 md:px-8 max-w-4xl mx-auto relative z-10">
+        <h2 class="text-4xl md:text-5xl font-medium text-white text-center mb-12 reveal-on-scroll">
+            <span class="lang-en">All Versions</span>
+            <span class="lang-zh">所有版本</span>
+        </h2>
+        <div class="space-y-10">
+
+            <!--
+            <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-medium text-white mb-3">
+                            <span class="lang-en">[VERSION]</span>
+                            <span class="lang-zh">[VERSION]</span>
+                        </h3>
+                        <p class="text-xl text-neutral-400">
+                            <span class="lang-en">[SLOGAN]</span>
+                            <span class="lang-zh">[SLOGAN]</span>
+                        </p>
+                    </div>
+                    <a href="[DOWNLOAD URL FOR v0.8]"
+                       class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
+                        <span class="lang-en">Install</span>
+                        <span class="lang-zh">安装</span>
+                        <iconify-icon icon="lucide:download" class="ml-4" width="24"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        -->
+
+            <!-- Add more rows here (copy-paste the div block above) -->
+            <!-- Example placeholder row -->
+            <div class="glass-panel p-8 rounded-3xl border border-white/10 opacity-70 reveal-on-scroll delay-200">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+                    <div class="flex-1">
+                        <h3 class="text-3xl font-medium text-white mb-3">
+                            <span class="lang-en">Older Versions</span>
+                            <span class="lang-zh">更早版本</span>
+                        </h3>
+                        <p class="text-xl text-neutral-500">
+                            <span class="lang-en">Archived releases available on request.</span>
+                            <span class="lang-zh">归档版本可按需提供。</span>
+                        </p>
+                    </div>
+                    <a href="mailto:contact@tach.eu.org?subject=Request%20Older%20Version"
+                        class="inline-flex items-center px-10 py-5 bg-white/10 hover:bg-white/20 text-white font-bold text-lg rounded-xl transition-all">
+                        <span class="lang-en">Request Older Version</span>
+                        <span class="lang-zh">请求更早版本</span>
+                        <iconify-icon icon="lucide:mail" class="ml-4" width="24"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Installation Guide (Bottom) -->
+    <section id="guide" class="py-16 px-4 md:px-8 max-w-5xl mx-auto relative z-10">
+        <h2 class="text-4xl md:text-5xl font-medium text-white text-center mb-12 reveal-on-scroll">
+            <span class="lang-en">Installation Guide</span>
+            <span class="lang-zh">安装指南</span>
+        </h2>
+        <div class="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 reveal-on-scroll delay-200">
+            <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-8">
+                <h3 class="text-2xl text-cyan-400 mb-4">
+                    <span class="lang-en">Step-by-Step Guide</span>
+                    <span class="lang-zh">分步指南</span>
+                </h3>
+                <ol class="list-decimal pl-6 space-y-6">
+                    <li>
+                        <span class="lang-en">Install a userscript manager:</span>
+                        <span class="lang-zh">安装用户脚本管理器：</span>
+                        <ul class="list-disc pl-6 mt-2 space-y-2">
+                            <li><a href="https://www.tampermonkey.net/"
+                                    class="text-cyan-400 hover:underline">Tampermonkey</a> (Chromium / Gecko)</li>
+                            <li>
+                                <span class="lang-en">
+                                    Other userscript managers may or may not work as intended. You may try
+                                    though.</span>
+                                <span class="lang-zh">其他用户脚本管理器可能无法按预期工作。不过，您可以尝试一下。</span>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="lang-en">Download the script:</span>
+                        <span class="lang-zh">下载脚本：</span>
+                        <p class="mt-2">
+                            <span class="lang-en">Click the button above for the latest version, or choose from the
+                                list.
+                                The manager will prompt to install.</span>
+                            <span class="lang-zh">点击上方按钮获取最新版本，或从列表中选择。
+                                管理器将提示安装。</span>
+                        </p>
+                    </li>
+                    <li>
+                        <span class="lang-en">Confirm installation:</span>
+                        <span class="lang-zh">确认安装：</span>
+                        <p class="mt-2">
+                            <span class="lang-en">Click 'Install' / 'Confirm' in your extension manager. Make sure to
+                                refresh your target page.</span>
+                            <span class="lang-zh">在扩展程序管理器中点击“安装”/“确认”。请确保刷新目标页面。</span>
+                        </p>
+                    </li>
+                    <li>
+                        <span class="lang-en">You are all set:</span>
+                        <span class="lang-zh">一切就绪：</span>
+                        <p class="mt-2">
+                            <span class="lang-en">Welcome to the world of Privacy, Freedom, and Secure! You will no
+                                longer be in suffer.</span>
+                            <span class="lang-zh">欢迎来到隐私、自由和安全的世界！您将不再遭受折磨。</span>
+                        </p>
+                    </li>
+                </ol>
+
+                <h3 class="text-2xl text-cyan-400 mb-4 mt-12">
+                    <span class="lang-en">Troubleshooting</span>
+                    <span class="lang-zh">故障排除</span>
+                </h3>
+                <ul class="list-disc pl-6 space-y-3">
+                    <li>
+                        <span class="lang-en">Installed but Not Working? If you're using a Chromium-based Browser,
+                            make sure to enable Developer Mode in Extensions Page. Check out
+                            <a style="color: cyan;"
+                                href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">this
+                                page</a>
+                            for a guide for Chrome. Restart the browser afterwards.</span>
+                        <span class="lang-zh">安装了但是没用? 如果您使用的是基于 Chromium 内核的浏览器，
+                            请确保在扩展程序页面启用开发者模式。查看
+                            <a style="color: cyan;"
+                                href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">这个网页</a>
+                            获取Chrome的流程。请在操作后重启浏览器。</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Need help? Contact us at contact@tach.eu.org or report bugs.</span>
+                        <span class="lang-zh">需要帮助？请联系我们：contact@tach.eu.org 或报告错误。</span>
+                    </li>
+                </ul>
+
+                <p class="text-neutral-400 mt-12 text-center italic">
+                    <span class="lang-en">All versions are local-only — no data leaves your device.</span>
+                    <span class="lang-zh">所有版本均为本地运行 — 数据永不离开您的设备。</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 bg-black relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                <span class="text-white font-semibold text-lg">Down'sicient</span>
+            </div>
+            <div class="text-neutral-500 text-sm">
+                © 2026 Down'sicient Studio
+            </div>
+            <div class="flex gap-6 text-neutral-400">
+                <a href="./index.html" class="hover:text-cyan-500 transition-colors">
+                    <iconify-icon icon="lucide:home" width="20"></iconify-icon>
+                </a>
+                <a href="https://bugs.downsicient-math.plfront.us.kg" class="hover:text-cyan-500 transition-colors">
+                    <iconify-icon icon="lucide:bug" width="20"></iconify-icon>
+                </a>
+                <a href="https://downs.tach.eu.org" class="hover:text-cyan-500 transition-colors">
+                    <iconify-icon icon="lucide:star" width="20"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation & Language Script -->
+    <script src="index.js"></script>
+
+</body>
+
+</html>

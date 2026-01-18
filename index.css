@@ -1,0 +1,164 @@
+:root {
+    --accent: #0bf597;
+    /* Amber 500 */
+}
+
+body {
+    font-family: 'MiSans', sans-serif;
+    background-color: #050505;
+    color: #e5e5e5;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.serif {
+    font-family: 'Newsreader', serif;
+}
+
+nav.with-back {
+    --blurness: 15px;
+    z-index: 999 !important;
+    /* From https://css.glass */
+    background: rgba(22, 22, 22, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(var(--blurness));
+    -webkit-backdrop-filter: blur(var(--blurness));
+}
+
+/* Smooth Scroll & Animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(10px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Hero Text Reveal Animation */
+.char-reveal {
+    display: inline-block;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transform: translateY(100%);
+    animation: text-slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes text-slide-up {
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transform: translateY(0);
+    }
+}
+
+/* Marquee Animation */
+.marquee-container {
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.marquee-content {
+    animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Custom Utilities */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.amber-glow {
+    box-shadow: 0 0 60px -20px rgba(245, 158, 11, 0.15);
+}
+
+.bg-grid-pattern {
+    background-image: linear-gradient(to right, #ffffff05 1px, transparent 1px),
+        linear-gradient(to bottom, #ffffff05 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Stagger delays */
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+/* Checkbox Custom */
+.custom-checkbox:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+body.lang-en .lang-zh {
+    display: none !important;
+}
+
+@font-face {
+    font-family: KangxiDict;
+    src: url("./KangxiDict.ttf");
+}
+
+
+.lang-zh .title-zh {
+    font-family: KangxiDict;
+}
+
+.lang-zh .serif-zh {
+    font-family: "Noto Serif SC", serif;
+    font-weight: 500;
+}
+
+.lang-zh {
+    font-family: MiSans;
+}
+
+body.lang-zh .lang-en {
+    display: none !important;
+}
+
+@keyframes background-radiant {
+    0% {
+        background-size: 100%;
+    }
+
+    50% {
+        background-size: 500%;
+    }
+
+    100% {
+        background-size: 100%;
+    }
+}
+
+.background-circle {
+    background: radial-gradient(circle at center, #0ea258 0, rgb(11, 81, 166) 100%);
+    animation: background-radiant 60s linear infinite;
+}
+
+.transition {
+    transition: .5s ease-in-out;
+}

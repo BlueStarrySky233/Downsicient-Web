@@ -1,0 +1,754 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Down'sicient Math | 唐氏练习题</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin="">
+    <link
+        href="https://fonts.loli.net/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Geist:wght@100..900&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Regular.min.css" />
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css" />
+    <link rel="icon" href="./icon.png" />
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: rgba(22, 22, 22, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 960px;
+            max-height: 90vh;
+            box-shadow: 0 0 60px -20px rgba(11, 171, 245, 0.1);
+            position: relative;
+            cursor: move;
+        }
+
+        .modal-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+        }
+
+        .modal-close {
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            padding: 0;
+        }
+
+        .modal-body video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-body iframe {
+            width: 100%;
+            height: 540px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200 lang-en">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center transition">
+        <a href="#" class="text-xl font-semibold tracking-tight text-white flex items-center gap-2">
+            <span class="w-6 h-6"><img src="icon.png"></span>
+            Down'sicient
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-neutral-300">
+            <a href="./index.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Home</span>
+                <span class="lang-zh">主页</span>
+            </a>
+            <a href="./install.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Install</span>
+                <span class="lang-zh">安装</span>
+            </a>
+            <a href="./privacy.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Privacy Policy</span>
+                <span class="lang-zh">隐私政策</span>
+            </a>
+            <a href="./tos.html" class="hover:text-white transition-colors">
+                <span class="lang-en">ToS</span>
+                <span class="lang-zh">服务条款</span>
+            </a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleLang()"
+                class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
+                <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
+                <span class="lang-en">EN</span>
+                <span class="lang-zh">中</span>
+            </button>
+            <a href="#"
+                class="text-sm font-medium text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                <span class="lang-en">Login</span>
+                <span class="lang-zh">登录</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/10 background-circle rounded-full blur-[120px] opacity-40">
+            </div>
+            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl w-full text-center space-y-8">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-cyan-400 mb-4 reveal-on-scroll">
+                <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
+                <span class="lang-en">Beta Test Now Available</span>
+                <span class="lang-zh">公测现在开始</span>
+            </div>
+
+            <h1 class="text-6xl lang-en md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white">
+                <span class="block overflow-hidden">
+                    <span class="char-reveal lang-en" style="animation-delay: 0.1s;">An</span>
+                    <span class="char-reveal lang-en italic text-cyan-500/90" style="animation-delay: 0.2s;">auto</span>
+                    <span class="char-reveal lang-en" style="animation-delay: 0.3s;">way</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal lang-en" style="animation-delay: 0.4s;">to</span>
+                    <span class="char-reveal lang-en" style="animation-delay: 0.5s;">do</span>
+                    <span class="char-reveal lang-en" style="animation-delay: 0.6s;">the</span>
+                    <span class="char-reveal lang-en text-green-500/90" style="animation-delay: 0.7s;">Task.</span>
+                </span>
+            </h1>
+
+            <h1 class="text-6xl lang-zh md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white">
+                <span class="block overflow-hidden">
+                    <span class="char-reveal title-zh" style="animation-delay: 0.1s;">让</span>
+                    <span class="char-reveal title-zh text-cyan-500/90" style="animation-delay: 0.2s;">自由</span>
+                    <span class="char-reveal title-zh" style="animation-delay: 0.3s;">重归，</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal title-zh" style="animation-delay: 0.4s;">为</span>
+                    <span class="char-reveal title-zh text-lime-500/90" style="animation-delay: 0.5s;">公平</span>
+                    <span class="char-reveal title-zh" style="animation-delay: 0.6s;">贺岁。</span>
+                </span>
+            </h1>
+
+            <p
+                class="max-w-xl mx-auto text-lg md:text-xl text-neutral-400 font-light leading-relaxed reveal-on-scroll delay-300 lang-en">
+                Do the Task and Problems you are not suppose to do<br>— without losing your mind or wasting your time.
+            </p>
+
+
+            <p
+                class="max-w-xl mx-auto text-lg md:text-xl text-neutral-400 font-light leading-relaxed reveal-on-scroll delay-300 lang-zh">
+                高效完成那些本不该强加于你的任务与难题<br>——保持清醒，不浪费一丝光阴。
+            </p>
+
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 reveal-on-scroll delay-300 lang-en">
+                <button
+                    class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
+                    <a href="install.html">Be Free Now</a>
+                    <iconify-icon icon="lucide:arrow-right"
+                        class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
+                        width="18"></iconify-icon>
+                </button>
+                <button id="viewDemoBtn"
+                    class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
+                    <iconify-icon icon="lucide:play-circle" width="20"></iconify-icon>
+                    View Demo
+                </button>
+            </div>
+
+
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 reveal-on-scroll delay-300 lang-zh">
+                <button
+                    class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
+
+                    <a href="install.html">现在重获自由</a>
+                    <iconify-icon icon="lucide:arrow-right"
+                        class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
+                        width="18"></iconify-icon>
+                </button>
+                <button id="viewDemoBtn"
+                    class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
+                    <iconify-icon icon="lucide:play-circle" width="20"></iconify-icon>
+                    查看演示
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-neutral-500 animate-bounce">
+            <iconify-icon icon="lucide:arrow-down" width="24"></iconify-icon>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="py-12 border-y border-white/5 bg-black/50 relative z-20 overflow-hidden">
+        <div class="marquee-container w-full">
+            <div
+                class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide">
+                <span class="lang-en">No Time Wasting</span> ✦
+                <span class="lang-zh">不再浪费时间</span>
+                <span class="lang-en">Fully Automated</span> ✦
+                <span class="lang-zh">全自动</span>
+                <span class="lang-en">100% Safe and Free</span> ✦
+                <span class="lang-zh">100% 安全及免费</span>
+                <span class="lang-en">No learning curve</span class="lang-en"> ✦
+                <span class="lang-zh">无需学习时间</span>
+                <span class="lang-en">100% Private</span> ✦
+                <span class="lang-zh">100% 私密</span>
+                <span class="lang-en">Minimal Privacy Leak Risk</span> ✦
+                <span class="lang-zh">低泄露概率</span>
+                <span class="lang-en">No Time Wasting</span> ✦
+                <span class="lang-zh">不再浪费时间</span>
+                <span class="lang-en">Fully Automated</span> ✦
+                <span class="lang-zh">全自动</span>
+                <span class="lang-en">100% Safe and Free</span> ✦
+                <span class="lang-zh">100% 安全及免费</span>
+                <span class="lang-en">No learning curve</span class="lang-en"> ✦
+                <span class="lang-zh">无需学习时间</span>
+                <span class="lang-en">100% Private</span> ✦
+                <span class="lang-zh">100% 私密</span>
+                <span class="lang-en">Minimal Privacy Leak Risk</span> ✦
+                <span class="lang-zh">低泄露概率</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -> Solution Section -->
+    <section class="py-32 px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center space-y-24">
+            <div class="space-y-6">
+                <p class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll">
+                    <span class="lang-en">Spend an hour or so to do the Problems.</span>
+                    <span class="lang-zh serif-zh">花费一个小时或更多来做题目。</span>
+                </p>
+                <p class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll delay-100">
+                    <span class="lang-en">Desperate about the design of the System.</span>
+                    <span class="lang-zh serif-zh">对系统的设计感到无语。</span>
+                </p>
+                <p class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll delay-200">
+                    <span class="lang-en">Do not actually want to do this.</span>
+                    <span class="lang-zh serif-zh">被强迫做这一切。</span>
+                </p>
+            </div>
+
+            <div class="reveal-on-scroll delay-300">
+                <div class="h-16 w-px bg-gradient-to-b from-transparent via-cyan-500 to-transparent mx-auto mb-12">
+                </div>
+                <h2 class="text-4xl md:text-6xl text-white font-medium tracking-tight">
+                    <span class="lang-en">Down'sicient Math solves all of these with</span>
+                    <span class="lang-zh title-zh">唐氏练习题解决这些只需要</span> <br>
+                    <span class="serif italic text-cyan-500">
+                        <span class="lang-en">one single script.</span>
+                        <span class="lang-zh title-zh">一个脚本。</span>
+                    </span>
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-32 px-4 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Card 1 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="teenyicons:button-outline" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">One-Click Completion</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        Complete one Problem by one click only, no more action is required. Instantly do everything you
+                        need by one single click.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="teenyicons:button-outline" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">点击按钮即刻完成</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        只需单击一下即可完成一个题目，无需其他操作。一键即可立即完成所有所需操作。
+                    </p>
+                </div>
+
+
+                <!-- Card 2 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="vaadin:automation" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">Automated Process</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        Do the Tasks without even moving your fingers. Get rid of those annoying Tasks and Problems you
+                        are forced to do.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="vaadin:automation" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">全自动流程</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        无需动手指即可完成任务。摆脱那些你被迫去做的烦人任务和难题。
+                    </p>
+                </div>
+
+
+                <!-- Card 3 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-200 hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="mingcute:ai-line" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">AI Integration</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        Internal AI integrated, can be easy accessed through the sidebar. Break through the lies they
+                        made.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-200 hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="mingcute:ai-line" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">内置 AI</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        内置人工智能，可通过侧边栏轻松访问。揭穿他们编织的谎言。
+                    </p>
+                </div>
+
+
+                <!-- Card 4 (Wide) -->
+                <div
+                    class="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group flex flex-col md:flex-row gap-8 items-center lang-en">
+                    <div class="flex-1 space-y-4">
+                        <div
+                            class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-2 group-hover:scale-110 transition-transform">
+                            <iconify-icon icon="oui:nav-ui" width="24"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-white font-semibold">Modern and Easy-to-use UI</h3>
+                        <p class="text-neutral-400 leading-relaxed text-sm max-w-md">
+                            Get a easy-to-use, modern user interface for your auxiliary tool. Better than the user
+                            interfaces they made for you.
+                        </p>
+                    </div>
+                    <!-- UI Mockup Miniature -->
+                    <div
+                        class="flex-1 w-full bg-neutral-900 border border-white/10 rounded-xl p-4 shadow-2xl skew-y-1 transform transition-transform group-hover:skew-y-0">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-8 w-3/4 bg-neutral-800 rounded animate-pulse"></div>
+                            <div class="h-32 w-full bg-neutral-800 rounded animate-pulse opacity-50"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group flex flex-col md:flex-row gap-8 items-center lang-zh serif-zh">
+                    <div class="flex-1 space-y-4">
+                        <div
+                            class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-2 group-hover:scale-110 transition-transform">
+                            <iconify-icon icon="oui:nav-ui" width="24"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl text-white font-semibold">现代且易于使用的用户界面</h3>
+                        <p class="text-neutral-400 leading-relaxed text-sm max-w-md">
+                            为您的辅助工具获取一个易于使用、现代化的用户界面。比他们为您设计的那些用户界面更好。
+                        </p>
+                    </div>
+                    <!-- UI Mockup Miniature -->
+                    <div
+                        class="flex-1 w-full bg-neutral-900 border border-white/10 rounded-xl p-4 shadow-2xl skew-y-1 transform transition-transform group-hover:skew-y-0">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full bg-red-500"></div>
+                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="h-8 w-3/4 bg-neutral-800 rounded animate-pulse"></div>
+                            <div class="h-32 w-full bg-neutral-800 rounded animate-pulse opacity-50"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Card 5 -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="mdi:bug-outline" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">Swift Bug Fixing and Contact</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        As you report any error, we will be starting analyzing the bug. We will be on for contact most
+                        of the time.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
+                        <iconify-icon icon="mdi:bug-outline" width="24"></iconify-icon>
+                    </div>
+                    <h3 class="text-xl text-white font-semibold mb-3">快速修复漏洞及联系</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">
+                        您一旦报告任何错误，我们将立即开始分析该错误。我们大部分时间都会在线，方便您随时联系。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tenant Experience Section -->
+    <section id="experience" class="py-32 px-4 relative z-10 bg-neutral-900/30">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20 reveal-on-scroll lang-en">
+                <h2 class="text-3xl md:text-5xl text-white font-serif mb-6">A seamless journey for You</h2>
+                <p class="text-neutral-400">From the home page to the Tasks, Quick and Free.</p>
+            </div>
+
+            <div class="text-center mb-20 reveal-on-scroll lang-zh">
+                <h2 class="text-3xl md:text-5xl text-white serif-zh mb-6">快速上手，无缝衔接</h2>
+                <p class="text-neutral-400">从主页到任务页，快速、免费、自由。</p>
+            </div>
+
+            <div class="relative border-l border-white/10 ml-6 md:ml-1/2 space-y-12 pb-12">
+                <!-- Step 1 -->
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="md:text-right md:order-1">
+                        <h4 class="text-xl text-white font-medium mb-2">Explore Your new Friend</h4>
+                        <p class="text-neutral-500 text-sm">Go ahead and check Your tool.
+                            It is an add-on<br>which basically changes nothing, except the new<br>experiences we added.
+                            Have a wonderful journey!</p>
+                    </div>
+                    <div class="hidden md:block md:order-2">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            1</div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="md:text-right md:order-1">
+                        <h4 class="text-xl text-white font-medium mb-2">探索您的新“朋友”</h4>
+                        <p class="text-neutral-500 text-sm">去看看您的工具，他只是一个插件，基本上没有改变什么，
+                            <br>除了我们的妙妙工具。祝您旅途愉快！
+                        </p>
+                    </div>
+                    <div class="hidden md:block md:order-2">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            1</div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en delay-100">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="hidden md:flex md:justify-end md:order-1">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            2</div>
+                    </div>
+                    <div class="md:order-2">
+                        <h4 class="text-xl text-white font-medium mb-2">One-Click Finishing</h4>
+                        <p class="text-neutral-500 text-sm">Having the shiny button for You to click on.
+                            Instantly, everything is finished. No need to worry about anything.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh delay-100">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="hidden md:flex md:justify-end md:order-1">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            2</div>
+                    </div>
+                    <div class="md:order-2">
+                        <h4 class="text-xl text-white font-medium mb-2">左键单击，一键完成</h4>
+                        <p class="text-neutral-500 text-sm">一个全新的闪亮按钮等着您去点击。
+                            瞬间，一切就完成了。<br>还有什么是好担心的？</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en delay-200">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="md:text-right md:order-1">
+                        <h4 class="text-xl text-white font-medium mb-2">Continuing</h4>
+                        <p class="text-neutral-500 text-sm">Continue doing this results in an experience that
+                            You may never forget. Hold on, more features approaching!</p>
+                    </div>
+                    <div class="hidden md:block md:order-2">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            3</div>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh delay-200">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="md:text-right md:order-1">
+                        <h4 class="text-xl text-white font-medium mb-2">继续前进</h4>
+                        <p class="text-neutral-500 text-sm">继续这样做，你将获得一段永生难忘的体验。
+                            <br>别急，还有更多好东西在后头！
+                        </p>
+                    </div>
+                    <div class="hidden md:block md:order-2">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            3</div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en delay-300">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="hidden md:flex md:justify-end md:order-1">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            4</div>
+                    </div>
+                    <div class="md:order-2">
+                        <h4 class="text-xl text-white font-medium mb-2">Even More</h4>
+                        <p class="text-neutral-500 text-sm">AI Intergration, Automation Process,
+                            even Chat with Your friends! It is no longer a dream,
+                            but a truth that You and us made together.</p>
+                    </div>
+                </div>
+
+                <div
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh delay-300">
+                    <div
+                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
+                    </div>
+                    <div class="hidden md:flex md:justify-end md:order-1">
+                        <div
+                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
+                            4</div>
+                    </div>
+                    <div class="md:order-2">
+                        <h4 class="text-xl text-white font-medium mb-2">还有更多</h4>
+                        <p class="text-neutral-500 text-sm">人工智能集成、流程自动化，甚至可以和朋友聊天！
+                            <br>这不再是梦想，而是你我共同创造的现实。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="min-h-[80vh] flex flex-col items-center justify-center relative px-4 overflow-hidden">
+        <!-- Background Glow -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-cyan-900/20 to-neutral-900/0 rounded-full blur-[100px] z-0 pointer-events-none">
+        </div>
+
+        <div class="relative z-10 text-center max-w-3xl space-y-10">
+            <h2 class="text-5xl md:text-7xl serif text-white tracking-tight leading-tight reveal-on-scroll lang-en">
+                Stop doing the Problems <br>
+                <span class="italic text-neutral-500">in pain.</span>
+            </h2>
+
+            <h2
+                class="text-5xl md:text-7xl serif text-white tracking-tight leading-tight reveal-on-scroll lang-zh title-zh">
+                让自由<br>
+                <span class="italic text-neutral-500">荣归故里。</span>
+            </h2>
+
+            <div class="flex flex-col items-center gap-4 reveal-on-scroll delay-100 lang-en">
+                <button
+                    class="cyan-glow px-10 py-5 bg-cyan-500 text-black text-lg font-bold rounded-full hover:bg-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.6)]">
+
+                    <a href="install.html">Start with Down'sicient</a>
+                </button>
+                <p class="text-neutral-500 text-sm">Free to start · Takes under a minute</p>
+            </div>
+
+            <div class="flex flex-col items-center gap-4 reveal-on-scroll delay-100 lang-zh">
+                <button
+                    class="cyan-glow px-10 py-5 bg-cyan-500 text-black text-lg font-bold rounded-full hover:bg-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.6)]">
+                    <a href="install.html">开始唐氏</a>
+                </button>
+                <p class="text-neutral-500 text-sm">免费开始 - 不到一分钟搞定</p>
+            </div>
+        </div>
+    </section>
+    <!-- Demo Modal (Pop-up) -->
+    <div id="demoModal" class="modal">
+        <div id="modalContent" class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-lg font-medium text-white">
+                    <span class="lang-en">Demo Video</span>
+                    <span class="lang-zh">演示视频</span>
+                </h3>
+                <button id="closeModal" class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- Placeholder Video (You can replace with real video or YouTube embed) -->
+                <div class="w-full h-[540px] bg-neutral-900 flex items-center justify-center text-neutral-400 text-xl">
+                    <span class="lang-en">Demo Video Placeholder</span>
+                    <span class="lang-zh">演示视频占位符</span>
+                    <!-- Optional: Real embed example -->
+                    <!-- <iframe width="100%" height="540" src="https://www.youtube.com/embed/PLACEHOLDER_VIDEO_ID" title="Demo" frameborder="0" allowfullscreen></iframe> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 bg-black relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                <span class="text-white font-semibold text-lg">Down'sicient</span>
+            </div>
+            <div class="text-neutral-500 text-sm">
+                © 2026 Down'sicient Studio
+            </div>
+            <div class="flex gap-6 text-neutral-400">
+                <a href="#" class="hover:text-cyan-500 transition-colors"><iconify-icon icon="lucide:earth"
+                        width="20"></iconify-icon></a>
+                <a href="https://bugs.downsicient-math.plfront.us.kg"
+                    class="hover:text-cyan-500 transition-colors"><iconify-icon icon="lucide:bug"
+                        width="20"></iconify-icon></a>
+                <a href="https://downs.tach.eu.org" class="hover:text-cyan-500 transition-colors"><iconify-icon
+                        icon="lucide:star" width="20"></iconify-icon></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation Script -->
+    <script src="index.js"></script>
+    <script>
+        const modal = document.getElementById('demoModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
+        const viewDemoBtns = document.querySelectorAll('#viewDemoBtn, #viewDemoBtnZh');
+
+        viewDemoBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Drag Functionality for Modal
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+
+        modalContent.addEventListener('mousedown', (e) => {
+            initialX = e.clientX - currentX;
+            initialY = e.clientY - currentY;
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                modalContent.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    </script>
+</body>
+
+</html>

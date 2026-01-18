@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | 服务条款</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.loli.net">
+    <link rel="preconnect" href="https://gstatic.loli.net" crossorigin="">
+    <link
+        href="https://fonts.loli.net/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Geist:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Regular.min.css" />
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css" />
+    <link rel="icon" href="./icon.png" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200 lang-en">
+
+    <!-- Navigation (same as privacy.html) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center transition">
+        <a href="./index.html" class="text-xl font-semibold tracking-tight text-white flex items-center gap-2">
+            <span class="w-6 h-6"><img src="icon.png" alt="Logo"></span>
+            Down'sicient
+        </a>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-neutral-300">
+            <a href="./index.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Home</span>
+                <span class="lang-zh">主页</span>
+            </a>
+            <a href="./install.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Install</span>
+                <span class="lang-zh">安装</span>
+            </a>
+            <a href="./privacy.html" class="hover:text-white transition-colors">
+                <span class="lang-en">Privacy Policy</span>
+                <span class="lang-zh">隐私政策</span>
+            </a>
+            <a href="./tos.html" class="hover:text-white transition-colors">
+                <span class="lang-en">ToS</span>
+                <span class="lang-zh">服务条款</span>
+            </a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button onclick="toggleLang()"
+                class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
+                <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
+                <span class="lang-en">EN</span>
+                <span class="lang-zh">中</span>
+            </button>
+            <a href="#"
+                class="text-sm font-medium text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                <span class="lang-en">Login</span>
+                <span class="lang-zh">登录</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="absolute inset-0 z-0" style="position: fixed;">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/10 rounded-full blur-[120px] opacity-70">
+        </div>
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+    </div>
+    <!-- Hero / Title Section -->
+    <section class="relative pt-32 pb-16 px-4 text-center">
+        <div class="absolute inset-0 z-0 bg-grid-pattern opacity-20"></div>
+        <div class="relative z-10 max-w-4xl mx-auto space-y-6">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-cyan-400 mb-6 reveal-on-scroll">
+                <span class="lang-en">Last updated: January 2026</span>
+                <span class="lang-zh">最后更新：2026年1月</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-tight text-white">
+                <span class="block overflow-hidden">
+                    <span class="char-reveal lang-en" style="animation-delay: 0.1s;">Terms</span>
+                    <span class="char-reveal lang-en" style="animation-delay: 0.2s;">of</span>
+                    <span class="char-reveal lang-en" style="animation-delay: 0.3s;">Service</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal lang-zh title-zh" style="animation-delay: 0.1s;">服务条款</span>
+                </span>
+            </h1>
+
+            <p class="text-xl text-neutral-400 max-w-2xl mx-auto reveal-on-scroll delay-200">
+                <span class="lang-en">Our terms ensure fair and empowered use of our tools.</span>
+                <span class="lang-zh">我们的条款确保公平和赋权使用我们的工具。</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4 md:px-8 max-w-5xl mx-auto relative z-10">
+        <div class="space-y-16 glass-panel p-8 md:p-12 rounded-3xl border border-white/10">
+
+            <!-- Overview -->
+            <div class="reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">1. Overview</span>
+                    <span class="lang-zh">一、概述</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>Welcome to Down'sicient Studio ("we", "us", or "our"). These Terms of Service ("Terms") govern
+                        your access to, download of, and use of our software products, including browser extensions,
+                        user scripts, websites, and related materials (collectively, the "Products").</p>
+                    <p>By installing, downloading, accessing, or using any of the Products, you agree to be bound by
+                        these Terms. If you do not agree, do not install or use the Products.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>欢迎来到 Down'sicient
+                        Studio（以下简称“我们”）。本服务条款（以下简称“条款”）规范您对我们软件产品（包括浏览器扩展程序、用户脚本、网站及相关资料，统称为“产品”）的访问、下载和使用。</p>
+                    <p>安装、下载、访问或使用任何产品，即表示您同意受本条款约束。如果您不同意，请勿安装或使用产品。</p>
+                </div>
+            </div>
+
+            <!-- Eligibility -->
+            <div class="reveal-on-scroll delay-100">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">2. Eligibility</span>
+                    <span class="lang-zh">二、资格</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>You must be at least 13 years old to use the Products. If you are a minor, you represent that you
+                        have obtained permission from your parent or legal guardian.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>您必须年满13周岁才能使用本产品。如果您未成年，则您声明您
+                        已获得您的父母或法定监护人的许可。</p>
+                </div>
+            </div>
+
+            <!-- Description of the Products -->
+            <div class="reveal-on-scroll delay-200">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">3. Description of the Products</span>
+                    <span class="lang-zh">三、产品描述</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>The Products are local productivity and accessibility utilities that operate entirely on your
+                        device. They analyze webpage content locally in your browser to provide features that may assist
+                        with usability or accessibility on certain websites or platforms, and to restore what should
+                        never have been taken away without consent. They only collect information that is voluntarily
+                        given. Our enforcement is limited to account management, where applicable, reflecting our
+                        commitment to user autonomy.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>这些产品是完全在您的设备上运行的本地生产力和辅助功能工具。
+                        它们会在您的浏览器中本地分析网页内容，以提供有助于提升某些网站或平台可用性或辅助功能的功能，
+                        并恢复未经同意不应被移除的内容。
+                        它们仅收集用户自愿提供的信息。
+                        我们的执法仅限于账户管理（如适用），这体现了我们对用户自主权的承诺。</p>
+                </div>
+            </div>
+
+            <!-- License Grant -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">4. License Grant</span>
+                    <span class="lang-zh">四、许可授予</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive,
+                        non-transferable, revocable license to install and use the Products solely for your personal,
+                        non-commercial use, to reclaim your time and learning on your own terms.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>在您遵守这些条款的前提下，我们授予您一项有限的、非独占的、
+                        不可转让的、可撤销的许可，允许您仅出于个人、
+                        非商业用途安装和使用产品，以便您能够按照自己的方式掌控时间和学习。</p>
+                </div>
+            </div>
+
+            <!-- User Conduct and Responsibilities -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">5. User Conduct and Responsibilities</span>
+                    <span class="lang-zh">五、用户行为和责任</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>You agree to:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Use the Products only in accordance with applicable laws.</li>
+                        <li>Not use the Products to violate the terms of service of any third-party platform.</li>
+                        <li>Not attempt to interfere with, disrupt, reverse-engineer, decompile, disassemble, or gain
+                            unauthorized access to any third-party system or the Products themselves.</li>
+                        <li>Accept full responsibility for any consequences arising from your use of the Products.</li>
+                        <li>Use the Products only for lawful personal purposes, without coercion or external compulsion.
+                        </li>
+                        <li>In extreme cases, these terms might alter corresponding to the situation you've met.
+                        </li>
+                    </ul>
+                    <p>Any misuse may result in immediate termination of your rights to use the Products.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>您同意：</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>仅根据适用法律使用产品。</li>
+                        <li>不得使用产品违反任何第三方平台的服务条款。</li>
+                        <li>不得试图干扰、破坏、逆向工程、反编译、反汇编或未经授权访问任何第三方系统或产品本身。</li>
+                        <li>对因使用产品而产生的任何后果承担全部责任。</li>
+                        <li>仅将产品在不受到胁迫或外部强迫情况下用于合法的个人用途。</li>
+                        <li>在极端情况下，这些条款可能会根据你所遇到的情况而有所改变。</li>
+                    </ul>
+                    <p>任何滥用行为都可能导致您使用产品的权利立即终止。</p>
+                </div>
+            </div>
+
+            <!-- Third-Party Platforms -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">6. Third-Party Platforms</span>
+                    <span class="lang-zh">六、第三方平台</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>The Products may interact with third-party websites or platforms. We do not own, control, or
+                        endorse any third parties. Your use with third-party platforms is at your own risk — we exist to
+                        empower, not to compel.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>本产品可能与第三方网站或平台互动。我们不拥有、控制或认可任何第三方。您使用第三方平台需自行承担风险——我们的宗旨是赋能用户，而非强迫用户。</p>
+                </div>
+            </div>
+
+            <!-- No Warranties -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">7. No Warranties</span>
+                    <span class="lang-zh">七、无担保</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>THE PRODUCTS ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>产品按“原样”提供，不提供任何形式的明示或暗示的保证。</p>
+                </div>
+            </div>
+
+            <!-- Limitation of Liability -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">8. Limitation of Liability</span>
+                    <span class="lang-zh">八、责任限制</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+                        SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OF THE PRODUCTS.</p>
+                </div>
+                
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>在法律允许的最大范围内，对于因您使用产品而引起的任何间接、附带、特殊或后果性损害，我们概不负责。</p>
+                </div>
+            </div>
+
+            <!-- Changes and Termination -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">9. Changes and Termination</span>
+                    <span class="lang-zh">九、变更和终止</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>We may modify or discontinue the Products or these Terms at any time. Your continued use
+                        constitutes acceptance of changes. Enforcement of these Terms is limited to account-related
+                        actions, where applicable, to preserve user autonomy.</p>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>我们可能随时修改或终止产品或本条款。您继续使用即表示您接受这些变更。为维护用户自主权，本条款的执行仅限于适用情况下与账户相关的操作。</p>
+                </div>
+            </div>
+
+            <!-- Governing Law -->
+            <div class="reveal-on-scroll delay-300">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">10. Governing Law</span>
+                    <span class="lang-zh">十、管辖法律</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>These Terms are governed by the laws of the People's Republic of China.</p>
+                </div>
+                
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>本条款受中华人民共和国法律管辖。</p>
+                </div>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="reveal-on-scroll delay-300 mt-16 pt-12 border-t border-white/10">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                    <span class="lang-en">11. Contact Us</span>
+                    <span class="lang-zh">十一、联系我们</span>
+                </h2>
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                    <p>For questions — or for quiet solidarity — contact us at contact@tach.eu.org.</p>
+                    <p class="mt-6 font-semibold">
+                        Down'sicient Studio<br>
+                        Shenzhen, China
+                    </p>
+                </div>
+                
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                    <p>如有任何疑问，或想表达默默的声援，请联系我们：contact@tach.eu.org。</p>
+                    <p class="mt-6 font-semibold">
+                        Down'sicient Studio<br>
+                        中国深圳
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (same as privacy.html) -->
+    <footer class="py-12 px-6 border-t border-white/10 bg-black relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                <span class="text-white font-semibold text-lg">Down'sicient</span>
+            </div>
+            <div class="text-neutral-500 text-sm">
+                © 2026 Down'sicient Studio
+            </div>
+            <div class="flex gap-6 text-neutral-400">
+                <a href="./index.html" class="hover:text-cyan-500 transition-colors">
+                    <iconify-icon icon="lucide:home" width="20"></iconify-icon>
+                </a>
+                <a href="https://bugs.downsicient-math.plfront.us.kg" class="hover:text-cyan-500 transition-colors">
+                    <iconify-icon icon="lucide:bug" width="20"></iconify-icon>
+                </a>
+                <a href="https://downs.tach.eu.org" class="hover:text-cyan-500 transition-colors">
+                    <iconify-icon icon="lucide:star" width="20"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animation & Language Script (same as index.html) -->
+    <script src="index.js"></script>
+
+</body>
+
+</html>
