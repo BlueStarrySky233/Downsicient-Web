@@ -4,6 +4,12 @@
 
 The following is a list of all versions and their support status. Please only report those which are still in support or safety update.
 
+:white_check_mark: - Full Support
+
+:yellow_square: - Security Update Only
+
+:x: - No longer in Support
+
 | Version | Support Status         |
 | ------- | ------------------ |
 | 1.0.0-pre   | :white_check_mark: |
