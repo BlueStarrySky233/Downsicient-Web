@@ -17,4 +17,8 @@ The following is a list of all versions and their support status. Please only re
 
 ## Reporting a Vulnerability
 
-For any security issue, you may submit on Github issues page. If you think it's an extreme issue which should not gain any public attention, please contact us at contact@tach.eu.org. Notice that you will receive reply from personal emails.
+For any security issue, you may submit on Github issues page. 
+
+If you think it's an extreme issue which should not gain any public attention, please contact us at contact@tach.eu.org. Notice that you will receive reply from personal emails.
+
+You may also report from Github Security.
