@@ -12,7 +12,8 @@ The following is a list of all versions and their support status. Please only re
 
 | Version | Support Status         |
 | ------- | ------------------ |
-| 1.0.0-pre   | :white_check_mark: |
+| 1.0.0-pre-2   | :white_check_mark: |
+| 1.0.0-pre   | :yellow_square: |
 | Older Versions   | :x:                |
 
 ## Reporting a Vulnerability
