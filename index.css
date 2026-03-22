@@ -113,9 +113,6 @@ nav.with-back {
     border-color: var(--accent);
 }
 
-body.lang-en .lang-zh {
-    display: none !important;
-}
 
 @font-face {
     font-family: KangxiDict;
@@ -123,11 +120,15 @@ body.lang-en .lang-zh {
 }
 
 
-.lang-zh .title-zh {
+.title-zh {
     font-family: KangxiDict;
 }
 
-.lang-zh .serif-zh {
+.alkano {
+    direction: rtl;
+}
+
+.serif-zh {
     font-family: "Noto Serif SC", serif;
     font-weight: 500;
 }
@@ -136,9 +137,6 @@ body.lang-en .lang-zh {
     font-family: MiSans;
 }
 
-body.lang-zh .lang-en {
-    display: none !important;
-}
 
 @keyframes background-radiant {
     0% {
@@ -161,4 +159,9 @@ body.lang-zh .lang-en {
 
 .transition {
     transition: .5s ease-in-out;
+}
+
+i {
+    opacity: 0;
+    font-size: 1px;
 }

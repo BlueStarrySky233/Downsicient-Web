@@ -24,11 +24,9 @@ function LoadObserverAnimation() {
 document.addEventListener('DOMContentLoaded', () => {
     LoadObserverAnimation();
     scrollNavBackground();
-    if (navigator.language == "zh-CN") {
-        document.body.classList.replace('lang-en', 'lang-zh');
-    }
-    else {
-        document.body.classList.replace('lang-zh', 'lang-en');
+
+    if (localStorage.getItem("DownsicientLanguage") != null) {
+        i18n.changeLanguage(localStorage.getItem("DownsicientLanguage"));
     }
 });
 
@@ -43,16 +41,32 @@ function scrollNavBackground() {
 
 document.addEventListener("scroll", scrollNavBackground)
 
-// Language Toggle
-function toggleLang() {
-    const body = document.body;
-    document.querySelectorAll(".is-visible").forEach((el) => { el.classList.remove("is-visible") })
-    LoadObserverAnimation();
 
-    if (body.classList.contains('lang-en')) {
-        body.classList.replace('lang-en', 'lang-zh');
-    } else {
-        body.classList.replace('lang-zh', 'lang-en');
-    }
+var i18n = domI18n({
+    selector: '[data-translatable]',
+    languages: ['eng', 'zhs', 'zht', 'sqv', 'akn', 'ent'],
+    defaultLanguage: "eng",
+    separator: ' // ',
+});
 
-}
+const langToggle = document.getElementById('langToggle');
+const langMenu = document.getElementById('langMenu');
+const currentLangSpan = document.getElementById('currentLang');
+
+langToggle.addEventListener('click', () => {
+    langMenu.classList.toggle('hidden');
+});
+
+langMenu.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        i18n.changeLanguage(lang);
+
+        localStorage.setItem("DownsicientLanguage", lang);
+
+        localStorage.setItem('lang', lang);
+        langMenu.classList.add('hidden');
+        document.querySelectorAll(".is-visible").forEach((el) => { el.classList.remove("is-visible") })
+        LoadObserverAnimation();
+    });
+});

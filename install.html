@@ -19,6 +19,7 @@
         href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css" />
     <link rel="icon" href="./icon.png" />
     <link rel="stylesheet" href="index.css" /> <!-- Shared CSS -->
+    <script src="./dom-i18n.min.js"></script>
 </head>
 
 <body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200 lang-en">
@@ -29,35 +30,71 @@
             <span class="w-6 h-6"><img src="icon.png" alt="Logo"></span>
             Down'sicient
         </a>
+
         <div class="hidden md:flex gap-8 text-sm font-medium text-neutral-300">
-            <a href="./index.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Home</span>
-                <span class="lang-zh">主页</span>
+            <a href="./index.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Home</span>
+                <span>主页</span>
+                <span>首頁</span>
+                <span>Qausezijet</span>
+                <span class="alkano">خاوٜسهٍزيَیهٍت</span>
             </a>
-            <a href="./install.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Install</span>
-                <span class="lang-zh">安装</span>
+            <a href="./install.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Install</span>
+                <span>安装</span>
+                <span>安裝</span>
+                <span>Enstaliren</span>
+                <span class="alkano">هٍنستاليَرهٍن</span>
             </a>
-            <a href="./privacy.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Privacy Policy</span>
-                <span class="lang-zh">隐私政策</span>
+            <a href="./privacy.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Privacy Policy</span>
+                <span>隐私政策</span>
+                <span>隱私權政策</span>
+                <span>Prevativorejel</span>
+                <span class="alkano">فرهٍبَاتيَبَوَرهٍیهٍل</span>
             </a>
-            <a href="./tos.html" class="hover:text-white transition-colors">
-                <span class="lang-en">ToS</span>
-                <span class="lang-zh">服务条款</span>
+            <a href="./tos.html" class="hover:text-white transition-colors" data-translatable>
+                <span>ToS</span>
+                <span>服务条款</span>
+                <span>服務條款</span>
+                <span>Zerbistorejel</span>
+                <span class="alkano">زهٍربيَستوَرهٍیهٍل</span>
             </a>
         </div>
         <div class="flex items-center gap-4">
-            <button onclick="toggleLang()"
-                class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
-                <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
-                <span class="lang-en">EN</span>
-                <span class="lang-zh">中</span>
-            </button>
-            <a href="#"
+            <div class="relative">
+                <button id="langToggle"
+                    class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
+                    <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
+                    <span id="currentLang" data-translatable="">
+                        <span>Language</span>
+                        <span>语言</span>
+                        <span>語言</span>
+                        <span>Spraqe</span>
+                        <span class="alkano">سفراخهٍ</span>
+                    </span>
+                </button>
+                <div id="langMenu"
+                    class="absolute right-0 mt-2 w-64 bg-neutral-800 border border-neutral-700 rounded-md shadow-lg hidden z-50">
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="eng">English (US)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="zhs">简体中文 (中国大陆)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="zht">繁體中文 (中国台湾)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="sqv">Suqavispraq (Waul)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="akn">ال كانوَسفراخ (صوٜںجلوَںج)</button>
+                </div>
+            </div>
+            <a href="#" data-translatable
                 class="text-sm font-medium text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                <span class="lang-en">Login</span>
-                <span class="lang-zh">登录</span>
+                <span>Login</span>
+                <span>登录</span>
+                <span>登入</span>
+                <span>Züqhen</span>
+                <span class="alkano">زوًٜخههٍن</span>
             </a>
         </div>
     </nav>
@@ -76,37 +113,61 @@
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-cyan-400 mb-6 reveal-on-scroll">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
-                <span class="lang-en">Latest Version: v1.0.0</span>
-                <span class="lang-zh">最新版本：v1.0.0</span>
+                <span data-translatable="">
+                    <span>Latest Version: v1.0.0</span>
+                    <span>最新版本: v1.0.0</span>
+                    <span>最新版本: v1.0.0</span>
+                    <span>Verzon Najal: v1.0.0</span>
+                    <span class="alkano">v1.0.0<span>بَهٍرزوَن نایال: <i>1</i></span></span>
+                </span>
             </div>
 
             <h1 class="text-6xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white">
-                <span class="block overflow-hidden">
-                    <span class="char-reveal lang-en" style="animation-delay: 0.1s;">Install</span>
-                    <span class="char-reveal lang-en italic text-cyan-500/90" style="animation-delay: 0.2s;">Now</span>
-                </span>
-                <span class="block overflow-hidden">
-                    <span class="char-reveal lang-zh title-zh" style="animation-delay: 0.1s;">立即</span>
-                    <span class="char-reveal lang-zh title-zh text-cyan-500/90"
-                        style="animation-delay: 0.2s;">安装</span>
+                <span class="block overflow-hidden" data-translatable="">
+                    <div>
+                        <span class="char-reveal" style="animation-delay: 0.1s;">Install</span>
+                        <span class="char-reveal italic text-cyan-500/90" style="animation-delay: 0.2s;">Now</span>
+                    </div>
+                    <div class="title-zh">
+                        <span class="char-reveal" style="animation-delay: 0.1s;">现在</span>
+                        <span class="char-reveal italic text-cyan-500/90" style="animation-delay: 0.2s;">安装</span>
+                    </div>
+                    <div class="title-zh">
+                        <span class="char-reveal" style="animation-delay: 0.1s;">現在</span>
+                        <span class="char-reveal italic text-cyan-500/90" style="animation-delay: 0.2s;">安裝</span>
+                    </div>
+                    <div>
+                        <span class="char-reveal" style="animation-delay: 0.1s;">Enstaliren</span>
+                        <span class="char-reveal italic text-cyan-500/90" style="animation-delay: 0.2s;">Jec</span>
+                    </div>
+                    <div class="alkano">
+                        <span class="char-reveal" style="animation-delay: 0.1s;">هٍنستاليَرهٍن</span>
+                        <span class="char-reveal italic text-cyan-500/90" style="animation-delay: 0.2s;">یهٍط</span>
+                    </div>
                 </span>
             </h1>
 
-            <p
+            <p data-translatable=""
                 class="max-w-3xl mx-auto text-2xl md:text-3xl text-neutral-300 font-light leading-relaxed reveal-on-scroll delay-300 lang-en">
                 <span>Time is Yours, Again.</span>
+                <span>时间，完璧归赵。</span>
+                <span>時間，完璧歸趙。 </span>
+                <span>Tid Vama est, Jec</span>
+                <span>تيَذ بَاما هٍست, یهٍط</span>
             </p>
 
-            <p
-                class="max-w-3xl mx-auto text-2xl md:text-3xl text-neutral-300 font-light leading-relaxed reveal-on-scroll delay-300 lang-zh">
-                <span>时间，完璧归赵。</span>
-            </p>
 
             <div
                 class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 reveal-on-scroll delay-300 lang-en">
                 <a href='./versions/1.0.0.user.js'
                     class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
-                    Install Latest
+                    <span data-translatable="">
+                        <span>Install Latest</span>
+                        <span>安装最新版</span>
+                        <span>安裝最新版</span>
+                        <span>Verzon Najal Enstaliren</span>
+                        <span class="alkano">بَهٍرزوَن نایال هٍنستاليَرهٍن</span>
+                    </span>
                     <iconify-icon icon="lucide:arrow-right"
                         class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
                         width="18"></iconify-icon>
@@ -114,32 +175,25 @@
                 <button
                     class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
                     <iconify-icon icon="tabler:book" width="20"></iconify-icon>
-                    <a href="#guide">View Full Guide</a>
-                </button>
-            </div>
-            <div
-                class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 reveal-on-scroll delay-300 lang-zh">
-                <a href='./versions/1.0.0.user.js'
-                    class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
-                    安装最新版
-                    <iconify-icon icon="lucide:arrow-right"
-                        class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
-                        width="18"></iconify-icon>
-                </a>
-                <button
-                    class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
-                    <iconify-icon icon="lucide:play-circle" width="20"></iconify-icon>
-                    <a href="#guide">查看完整指南</a>
+                    <a href="#guide" data-translatable="">
+                        <span>View Full Guide</span>
+                        <span>查看完整指南</span>
+                        <span>看完整指南</span>
+                        <span>Fürer Full Sehin</span>
+                        <span class="alkano">فِوًٜرهٍر فِوٜلل سهٍهيَن</span>
+                    </a>
                 </button>
             </div>
 
-            <p class="text-neutral-400 mt-8 text-lg reveal-on-scroll delay-300 lang-en">
-                <span>Free · Takes under a minute · Requires Tampermonkey · Firefox is Recommended </span>
-            </p>
-
-            <p class="text-neutral-400 mt-8 text-lg reveal-on-scroll delay-300 lang-zh">
+            <p class="text-neutral-400 mt-8 text-lg reveal-on-scroll delay-300" data-translatable="">
+                <span>Free · Takes under a minute · Require Tampermonkey · Firefox is Recommended </span>
                 <span>免费 · 不到一分钟 · 需要 Tampermonkey · 建议使用 Firefox </span>
+                <span>免費 · 不到一分鐘 · 需要 Tampermonkey · 建議使用 Firefox </span>
+                <span>Fraj · Ajn Minut Unter · Tampermonkey Massen · Firefox Rekomendera</span>
+                <span class="alkano">رهٍكوَمهٍنذهٍرا Firefox · ماسسهٍن Tampermonkey · فِرای · این ميَنوٜت وٜنتهٍر
+                </span>
             </p>
+
         </div>
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-neutral-500 animate-bounce">
             <iconify-icon icon="lucide:arrow-down" width="24"></iconify-icon>
@@ -149,74 +203,103 @@
     <!-- Other Versions – Vertical Stacked Rows -->
     <section class="py-16 px-4 md:px-8 max-w-4xl mx-auto relative z-10">
         <h2 class="text-4xl md:text-5xl font-medium text-white text-center mb-12 reveal-on-scroll">
-            <span class="lang-en">All Versions</span>
-            <span class="lang-zh">所有版本</span>
+            <span data-translatable="">
+                <span>All Versions</span>
+                <span>所有版本</span>
+                <span>所有版本</span>
+                <span>Allo Verzon</span>
+                <span class="alkano">اللوَ بَهٍرزوَن</span>
+            </span>
         </h2>
         <div class="space-y-10">
 
-            <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
+            <div
+                class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
                     <div class="flex-1">
                         <h3 class="text-3xl font-medium text-white mb-3">
-                            <span class="lang-en">v1.0.0</span>
-                            <span class="lang-zh">v1.0.0</span>
+                            <span>v1.0.0</span>
                         </h3>
-                        <p class="text-xl text-neutral-400">
-                            <span class="lang-en">Time is Yours, Again</span>
-                            <span class="lang-zh">时间，完璧归赵。</span>
+                        <p class="text-xl text-neutral-400" data-translatable="">
+                            <span>Time is Yours, Again.</span>
+                            <span>时间，完璧归赵。</span>
+                            <span>時間，完璧歸趙。 </span>
+                            <span>Tid Vama est, Jec</span>
+                            <span>تيَذ بَاما هٍست, یهٍط</span>
                         </p>
                     </div>
                     <a href="./versions/1.0.0.user.js"
-                       class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
-                        <span class="lang-en">Install</span>
-                        <span class="lang-zh">安装</span>
+                        class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
+                        <span data-translatable="">
+                            <span>Install</span>
+                            <span>安装</span>
+                            <span>安装</span>
+                            <span>Enstaliren</span>
+                            <span>هٍنستاليَرهٍن</span>
+                        </span>
                         <iconify-icon icon="lucide:download" class="ml-4" width="24"></iconify-icon>
                     </a>
                 </div>
             </div>
 
-            <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
+            <div
+                class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
                     <div class="flex-1">
                         <h3 class="text-3xl font-medium text-white mb-3">
-                            <span class="lang-en">v1.0.0-pre-2</span>
-                            <span class="lang-zh">v1.0.0-pre-2</span>
+                            <span>v1.0.0-pre-2</span>
                         </h3>
-                        <p class="text-xl text-neutral-400">
-                            <span class="lang-en">Time is Yours, Again</span>
-                            <span class="lang-zh">时间，完璧归赵。</span>
+                        <p class="text-xl text-neutral-400" data-translatable="">
+                            <span>Time is Yours, Again.</span>
+                            <span>时间，完璧归赵。</span>
+                            <span>時間，完璧歸趙。 </span>
+                            <span>Tid Vama est, Jec</span>
+                            <span>تيَذ بَاما هٍست, یهٍط</span>
                         </p>
                     </div>
                     <a href="./versions/1.0.0-pre-2.user.js"
-                       class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
-                        <span class="lang-en">Install</span>
-                        <span class="lang-zh">安装</span>
+                        class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
+                        <span data-translatable="">
+                            <span>Install</span>
+                            <span>安装</span>
+                            <span>安装</span>
+                            <span>Enstaliren</span>
+                            <span>هٍنستاليَرهٍن</span>
+                        </span>
                         <iconify-icon icon="lucide:download" class="ml-4" width="24"></iconify-icon>
                     </a>
                 </div>
             </div>
-            
-            <div class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
+
+            <div
+                class="glass-panel p-8 rounded-3xl border border-white/10 hover:border-cyan-500/30 transition-all reveal-on-scroll delay-100">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
                     <div class="flex-1">
                         <h3 class="text-3xl font-medium text-white mb-3">
-                            <span class="lang-en">v1.0.0-pre</span>
-                            <span class="lang-zh">v1.0.0-pre</span>
+                            <span>v1.0.0-pre</span>
                         </h3>
-                        <p class="text-xl text-neutral-400">
-                            <span class="lang-en">Time is Yours, Again</span>
-                            <span class="lang-zh">时间，完璧归赵。</span>
+                        <p class="text-xl text-neutral-400" data-translatable="">
+                            <span>Time is Yours, Again.</span>
+                            <span>时间，完璧归赵。</span>
+                            <span>時間，完璧歸趙。 </span>
+                            <span>Tid Vama est, Jec</span>
+                            <span>تيَذ بَاما هٍست, یهٍط</span>
                         </p>
                     </div>
                     <a href="./versions/1.0.0-pre.user.js"
-                       class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
-                        <span class="lang-en">Install</span>
-                        <span class="lang-zh">安装</span>
+                        class="inline-flex items-center px-10 py-5 bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-300 font-bold text-lg rounded-xl transition-all">
+                        <span data-translatable="">
+                            <span>Install</span>
+                            <span>安装</span>
+                            <span>安装</span>
+                            <span>Enstaliren</span>
+                            <span>هٍنستاليَرهٍن</span>
+                        </span>
                         <iconify-icon icon="lucide:download" class="ml-4" width="24"></iconify-icon>
                     </a>
                 </div>
             </div>
-        
+
 
             <!-- Add more rows here (copy-paste the div block above) -->
             <!-- Example placeholder row -->
@@ -224,18 +307,33 @@
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
                     <div class="flex-1">
                         <h3 class="text-3xl font-medium text-white mb-3">
-                            <span class="lang-en">Older Versions</span>
-                            <span class="lang-zh">更早版本</span>
+                            <span data-translatable="">
+                                <span>Older Versions</span>
+                                <span>更早版本</span>
+                                <span>更早版本</span>
+                                <span>Verzon Altal</span>
+                                <span class="alkano">بَهٍرزوَن التال</span>
+                            </span>
                         </h3>
                         <p class="text-xl text-neutral-500">
-                            <span class="lang-en">Archived releases available on request.</span>
-                            <span class="lang-zh">归档版本可按需提供。</span>
+                            <span data-translatable="">
+                                <span>Archived releases available on request.</span>
+                                <span>归档版本可按需提供。</span>
+                                <span>歸檔版本可按需提供。</span>
+                                <span>Vam Verzonom Altal Rekvesten kann.</span>
+                                <span class="alkano">بَام بَهٍرزوَنوَم التال رهٍكبَهٍستهٍن كانن.<i>1</i></span>
+                            </span>
                         </p>
                     </div>
                     <a href="mailto:contact@tach.eu.org?subject=Request%20Older%20Version"
                         class="inline-flex items-center px-10 py-5 bg-white/10 hover:bg-white/20 text-white font-bold text-lg rounded-xl transition-all">
-                        <span class="lang-en">Request Older Version</span>
-                        <span class="lang-zh">请求更早版本</span>
+                        <span data-translatable="">
+                            <span>Request Older Version</span>
+                            <span>请求更早版本</span>
+                            <span>請求更早版本</span>
+                            <span>Verzonom Altal Rekvesten</span>
+                            <span>بَهٍرزوَنوَم التال رهٍكبَهٍستهٍن</span>
+                        </span>
                         <iconify-icon icon="lucide:mail" class="ml-4" width="24"></iconify-icon>
                     </a>
                 </div>
@@ -247,89 +345,171 @@
     <!-- Installation Guide (Bottom) -->
     <section id="guide" class="py-16 px-4 md:px-8 max-w-5xl mx-auto relative z-10">
         <h2 class="text-4xl md:text-5xl font-medium text-white text-center mb-12 reveal-on-scroll">
-            <span class="lang-en">Installation Guide</span>
-            <span class="lang-zh">安装指南</span>
+            <span data-translatable="">
+                <span>Installation Guide</span>
+                <span class="serif-zh">安装指南</span>
+                <span class="serif-zh">安裝指南</span>
+                <span>Installation Guide</span>
+                <span>Installation Guide</span>
+            </span>
         </h2>
         <div class="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 reveal-on-scroll delay-200">
             <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-8">
                 <h3 class="text-2xl text-cyan-400 mb-4">
-                    <span class="lang-en">Step-by-Step Guide</span>
-                    <span class="lang-zh">分步指南</span>
+                    <span data-translatable="">
+                        <span>Step-by-Step Guide</span>
+                        <span class="serif-zh">分步指南</span>
+                        <span class="serif-zh">逐步指南</span>
+                        <span>Step-by-Step Guide</span>
+                        <span>Step-by-Step Guide</span>
+                    </span>
                 </h3>
                 <ol class="list-decimal pl-6 space-y-6">
                     <li>
-                        <span class="lang-en">Install a userscript manager:</span>
-                        <span class="lang-zh">安装用户脚本管理器：</span>
+                        <span data-translatable="">
+                            <span>Install a userscript manager:</span>
+                            <span>安装用户脚本管理器：</span>
+                            <span>安裝使用者腳本管理器：</span>
+                            <span>Install a userscript manager:</span>
+                            <span>Install a userscript manager:</span>
+                        </span>
                         <ul class="list-disc pl-6 mt-2 space-y-2">
                             <li><a href="https://www.tampermonkey.net/"
                                     class="text-cyan-400 hover:underline">Tampermonkey</a> (Chromium / Gecko)</li>
                             <li>
-                                <span class="lang-en">
-                                    Other userscript managers may or may not work as intended. You may try
-                                    though.</span>
-                                <span class="lang-zh">其他用户脚本管理器可能无法按预期工作。不过，您可以尝试一下。</span>
+                                <span data-translatable="">
+                                    <span>Other userscript managers may or may not work as intended. You may try
+                                        though.</span>
+                                    <span>其他用户脚本管理器可能无法按预期工作。不过，您可以尝试一下。</span>
+                                    <span>其他使用者腳本管理器可能無法如預期運作。不過，您可以嘗試一下。 </span>
+                                    <span>Other userscript managers may or may not work as intended. You may try
+                                        though.</span>
+                                    <span>Other userscript managers may or may not work as intended. You may try
+                                        though.</span>
+                                </span>
 
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <span class="lang-en">Download the script:</span>
-                        <span class="lang-zh">下载脚本：</span>
+                        <span data-translatable="">
+                            <span>Download the script:</span>
+                            <span>下载脚本：</span>
+                            <span>下載腳本：</span>
+                            <span>Download the script:</span>
+                            <span>Download the script:</span>
+                        </span>
                         <p class="mt-2">
-                            <span class="lang-en">Click the button above for the latest version, or choose from the
-                                list.
-                                The manager will prompt to install.</span>
-                            <span class="lang-zh">点击上方按钮获取最新版本，或从列表中选择。
-                                管理器将提示安装。</span>
+                            <span data-translatable="">
+                                <span>Click the button above for the latest version, or choose from the
+                                    list.
+                                    The manager will prompt to install.</span>
+                                <span>点击上方按钮获取最新版本，或从列表中选择。
+                                    管理器将提示安装。</span>
+                                <span>點擊上方按鈕以取得最新版本，或從清單中選擇。
+                                    管理員將提示安裝。 </span>
+                                <span>Click the button above for the latest version, or choose from the
+                                    list.
+                                    The manager will prompt to install.</span>
+                                <span>Click the button above for the latest version, or choose from the
+                                    list.
+                                    The manager will prompt to install.</span>
+                            </span>
                         </p>
                     </li>
                     <li>
-                        <span class="lang-en">Confirm installation:</span>
-                        <span class="lang-zh">确认安装：</span>
-                        <p class="mt-2">
-                            <span class="lang-en">Click 'Install' / 'Confirm' in your extension manager. Make sure to
+                        <span data-translatable="">
+                            <span>Confirm installation:</span>
+                            <span>确认安装：</span>
+                            <span>確認安裝：</span>
+                            <span>Confirm installation:</span>
+                            <span>Confirm installation:</span>
+                        </span>
+                        <p class="mt-2" data-translatable="">
+                            <span>Click 'Install' / 'Confirm' in your extension manager. Make sure to
                                 refresh your target page.</span>
-                            <span class="lang-zh">在扩展程序管理器中点击“安装”/“确认”。请确保刷新目标页面。</span>
+                            <span>在扩展程序管理器中点击“安装”/“确认”。请确保刷新目标页面。</span>
+                            <span>在擴充功能管理員中點選「安裝」/「確認」。請確保刷新目標頁面。 </span>
+                            <span>Click 'Install' / 'Confirm' in your extension manager. Make sure to
+                                refresh your target page.</span>
+                            <span>Click 'Install' / 'Confirm' in your extension manager. Make sure to
+                                refresh your target page.</span>
                         </p>
                     </li>
                     <li>
-                        <span class="lang-en">You are all set:</span>
-                        <span class="lang-zh">一切就绪：</span>
-                        <p class="mt-2">
-                            <span class="lang-en">Welcome to the world of Privacy, Freedom, and Secure! You will no
+                        <span data-translatable="">
+                            <span>You are all set:</span>
+                            <span>一切就绪：</span>
+                            <span>一切就緒：</span>
+                            <span>You are all set:</span>
+                            <span>You are all set:</span>
+                        </span>
+                        <p class="mt-2" data-translatable="">
+                            <span>Welcome to the world of Privacy, Freedom, and Secure! You will no
                                 longer be in suffer.</span>
-                            <span class="lang-zh">欢迎来到隐私、自由和安全的世界！您将不再遭受折磨。</span>
+                            <span>欢迎来到隐私、自由和安全的世界！您将不再遭受折磨。</span>
+                            <span>歡迎來到隱私、自由與安全的世界！您將不再遭受折磨。 </span>
+                            <span>Welcome to the world of Privacy, Freedom, and Secure! You will no
+                                longer be in suffer.</span>
+                            <span>Welcome to the world of Privacy, Freedom, and Secure! You will no
+                                longer be in suffer.</span>
                         </p>
                     </li>
                 </ol>
 
-                <h3 class="text-2xl text-cyan-400 mb-4 mt-12">
-                    <span class="lang-en">Troubleshooting</span>
-                    <span class="lang-zh">故障排除</span>
+                <h3 class="text-2xl text-cyan-400 mb-4 mt-12" data-translatable="">
+                    <span>Troubleshooting</span>
+                    <span class="serif-zh">故障排除</span>
+                    <span class="serif-zh">故障排除</span>
+                    <span>Troubleshooting</span>
+                    <span>Troubleshooting</span>
                 </h3>
                 <ul class="list-disc pl-6 space-y-3">
-                    <li>
-                        <span class="lang-en">Installed but Not Working? If you're using a Chromium-based Browser,
+                    <li data-translatable="">
+                        <span>Installed but Not Working? If you're using a Chromium-based Browser,
                             make sure to enable Developer Mode in Extensions Page. Check out
                             <a style="color: cyan;"
                                 href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">this
                                 page</a>
                             for a guide for Chrome. Restart the browser afterwards.</span>
-                        <span class="lang-zh">安装了但是没用? 如果您使用的是基于 Chromium 内核的浏览器，
+                        <span>安装了但是没用? 如果您使用的是基于 Chromium 内核的浏览器，
                             请确保在扩展程序页面启用开发者模式。查看
                             <a style="color: cyan;"
                                 href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">这个网页</a>
                             获取Chrome的流程。请在操作后重启浏览器。</span>
+                        <span>安裝了但是沒用? 如果您使用的是基於 Chromium 核心的瀏覽器，
+                            請確保在擴充功能頁面啟用開發者模式。查看
+                            <a style="color: cyan;"
+                                href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">這個網頁</a>
+                            取得Chrome的流程。請在操作後重新啟動瀏覽器。 </span>
+                        <span>Installed but Not Working? If you're using a Chromium-based Browser,
+                            make sure to enable Developer Mode in Extensions Page. Check out
+                            <a style="color: cyan;"
+                                href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">this
+                                page</a>
+                            for a guide for Chrome. Restart the browser afterwards.</span>
+                        <span>Installed but Not Working? If you're using a Chromium-based Browser,
+                            make sure to enable Developer Mode in Extensions Page. Check out
+                            <a style="color: cyan;"
+                                href="https://support.google.com/chrome/thread/155712634/where-do-i-go-to-turn-on-the-chrome-developer-mode?hl=en">this
+                                page</a>
+                            for a guide for Chrome. Restart the browser afterwards.</span>
                     </li>
-                    <li>
-                        <span class="lang-en">Need help? Contact us at contact@tach.eu.org or report bugs.</span>
-                        <span class="lang-zh">需要帮助？请联系我们：contact@tach.eu.org 或报告错误。</span>
+                    <li data-translatable="">
+                        <span>Need help? Contact us at contact@tach.eu.org or report bugs.</span>
+                        <span>需要帮助？请联系我们：contact@tach.eu.org 或报告错误。</span>
+                        <span>需要幫忙？請聯絡我們：contact@tach.eu.org 或回報錯誤。 </span>
+                        <span>Need help? Contact us at contact@tach.eu.org or report bugs.</span>
+                        <span>Need help? Contact us at contact@tach.eu.org or report bugs.</span>
                     </li>
                 </ul>
 
-                <p class="text-neutral-400 mt-12 text-center italic">
-                    <span class="lang-en">All versions are local-only — no data leaves your device.</span>
-                    <span class="lang-zh">所有版本均为本地运行 — 数据永不离开您的设备。</span>
+                <p class="text-neutral-400 mt-12 text-center italic" data-translatable="">
+                    <span>All versions are local-only — no data leaves your device.</span>
+                    <span>所有版本均为本地运行 — 数据永不离开您的设备。</span>
+                    <span>所有版本均為本機運作 — 資料永不離開您的裝置。 </span>
+                    <span>All versions are local-only — no data leaves your device.</span>
+                    <span>All versions are local-only — no data leaves your device.</span>
                 </p>
             </div>
         </div>

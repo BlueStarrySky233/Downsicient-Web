@@ -18,6 +18,7 @@
         href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css" />
     <link rel="icon" href="./icon.png" />
     <link rel="stylesheet" href="index.css" />
+    <script src="./dom-i18n.min.js"></script>
     <style>
         /* Modal Styles */
         .modal {
@@ -78,7 +79,7 @@
     </style>
 </head>
 
-<body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200 lang-en">
+<body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center transition">
@@ -87,34 +88,69 @@
             Down'sicient
         </a>
         <div class="hidden md:flex gap-8 text-sm font-medium text-neutral-300">
-            <a href="./index.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Home</span>
-                <span class="lang-zh">主页</span>
+            <a href="./index.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Home</span>
+                <span>主页</span>
+                <span>首頁</span>
+                <span>Qausezijet</span>
+                <span class="alkano">خاوٜسهٍزيَیهٍت</span>
             </a>
-            <a href="./install.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Install</span>
-                <span class="lang-zh">安装</span>
+            <a href="./install.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Install</span>
+                <span>安装</span>
+                <span>安裝</span>
+                <span>Enstaliren</span>
+                <span class="alkano">هٍنستاليَرهٍن</span>
             </a>
-            <a href="./privacy.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Privacy Policy</span>
-                <span class="lang-zh">隐私政策</span>
+            <a href="./privacy.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Privacy Policy</span>
+                <span>隐私政策</span>
+                <span>隱私權政策</span>
+                <span>Prevativorejel</span>
+                <span class="alkano">فرهٍبَاتيَبَوَرهٍیهٍل</span>
             </a>
-            <a href="./tos.html" class="hover:text-white transition-colors">
-                <span class="lang-en">ToS</span>
-                <span class="lang-zh">服务条款</span>
+            <a href="./tos.html" class="hover:text-white transition-colors" data-translatable>
+                <span>ToS</span>
+                <span>服务条款</span>
+                <span>服務條款</span>
+                <span>Zerbistorejel</span>
+                <span class="alkano">زهٍربيَستوَرهٍیهٍل</span>
             </a>
         </div>
         <div class="flex items-center gap-4">
-            <button onclick="toggleLang()"
-                class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
-                <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
-                <span class="lang-en">EN</span>
-                <span class="lang-zh">中</span>
-            </button>
-            <a href="#"
+            <div class="relative">
+                <button id="langToggle"
+                    class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
+                    <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
+                    <span id="currentLang" data-translatable="">
+                        <span>Language</span>
+                        <span>语言</span>
+                        <span>語言</span>
+                        <span>Spraqe</span>
+                        <span class="alkano">سفراخهٍ</span>
+                    </span>
+                </button>
+                <div id="langMenu"
+                    class="absolute right-0 mt-2 w-64 bg-neutral-800 border border-neutral-700 rounded-md shadow-lg hidden z-50">
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="eng">English (US)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="zhs">简体中文 (中国大陆)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="zht">繁體中文 (中国台湾)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="sqv">Suqavispraq (Waul)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="akn">ال كانوَسفراخ (صوٜںجلوَںج)</button>
+                </div>
+            </div>
+            <a href="#" data-translatable
                 class="text-sm font-medium text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                <span class="lang-en">Login</span>
-                <span class="lang-zh">登录</span>
+                <span>Login</span>
+                <span>登录</span>
+                <span>登入</span>
+                <span>Züqhen</span>
+                <span class="alkano">زوًٜخههٍن</span>
             </a>
         </div>
     </nav>
@@ -133,53 +169,123 @@
             <div
                 class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-medium text-cyan-400 mb-4 reveal-on-scroll">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse"></span>
-                <span class="lang-en">Beta Test Now Available</span>
-                <span class="lang-zh">公测现在开始</span>
+                <div data-translatable>
+                    <span>New Release Now Available</span>
+                    <span>正式版现在发布</span>
+                    <span>正式版現在發布</span>
+                    <span>Fürmalverzon najal verforgbal est jec</span>
+                    <span class="alkano">فِوًٜرمالبَهٍرزوَن نایال بَهٍرفِوَرجبال هٍست یهٍط</span>
+                </div>
             </div>
 
-            <h1 class="text-6xl lang-en md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white">
-                <span class="block overflow-hidden">
-                    <span class="char-reveal lang-en" style="animation-delay: 0.1s;">An</span>
-                    <span class="char-reveal lang-en italic text-cyan-500/90" style="animation-delay: 0.2s;">auto</span>
-                    <span class="char-reveal lang-en" style="animation-delay: 0.3s;">way</span>
-                </span>
-                <span class="block overflow-hidden">
-                    <span class="char-reveal lang-en" style="animation-delay: 0.4s;">to</span>
-                    <span class="char-reveal lang-en" style="animation-delay: 0.5s;">do</span>
-                    <span class="char-reveal lang-en" style="animation-delay: 0.6s;">the</span>
-                    <span class="char-reveal lang-en text-green-500/90" style="animation-delay: 0.7s;">Task.</span>
-                </span>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white"
+                data-translatable>
+                <div>
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal" style="animation-delay: 0.1s;">An</span>
+                        <span class="char-reveal italic text-cyan-500/90" style="animation-delay: 0.2s;">auto</span>
+                        <span class="char-reveal" style="animation-delay: 0.3s;">way</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal" style="animation-delay: 0.4s;">to</span>
+                        <span class="char-reveal" style="animation-delay: 0.5s;">do</span>
+                        <span class="char-reveal" style="animation-delay: 0.6s;">the</span>
+                        <span class="char-reveal text-green-500/90" style="animation-delay: 0.7s;">Task.</span>
+                    </span>
+                </div>
+
+                <div class="title-zh">
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal title-zh" style="animation-delay: 0.1s;">让</span>
+                        <span class="char-reveal title-zh text-cyan-500/90" style="animation-delay: 0.2s;">自由</span>
+                        <span class="char-reveal title-zh" style="animation-delay: 0.3s;">重归，</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal title-zh" style="animation-delay: 0.4s;">为</span>
+                        <span class="char-reveal title-zh text-lime-500/90" style="animation-delay: 0.5s;">公平</span>
+                        <span class="char-reveal title-zh" style="animation-delay: 0.6s;">贺岁。</span>
+                    </span>
+                </div>
+
+                <div class="title-zh">
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal title-zh" style="animation-delay: 0.1s;">讓</span>
+                        <span class="char-reveal title-zh text-cyan-500/90" style="animation-delay: 0.2s;">自由</span>
+                        <span class="char-reveal title-zh" style="animation-delay: 0.3s;">重歸，</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal title-zh" style="animation-delay: 0.4s;">為</span>
+                        <span class="char-reveal title-zh text-lime-500/90" style="animation-delay: 0.5s;">公平</span>
+                        <span class="char-reveal title-zh" style="animation-delay: 0.6s;">賀歲。 </span>
+                    </span>
+                </div>
+
+                <div style="font-size: 6rem;">
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal" style="animation-delay: 0.1s;">Ajn</span>
+                        <span class="char-reveal" style="animation-delay: 0.2s;">Weg</span>
+                        <span class="char-reveal italic text-cyan-500/90"
+                            style="animation-delay: 0.3s;">Automatiŝ</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal" style="animation-delay: 0.4s;">zun</span>
+                        <span class="char-reveal text-green-500/90" style="animation-delay: 0.5s;">dau</span>
+                        <span class="char-reveal text-green-500/90" style="animation-delay: 0.6s;">Oqgabom</span>
+                        <span class="char-reveal" style="animation-delay: 0.7s;">Finas.</span>
+                    </span>
+                </div>
+
+                <div style="font-size: 6rem;">
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal italic text-cyan-500/90"
+                            style="animation-delay: 0.3s;">اوٜتوَماتيَش</span>
+                        <span class="char-reveal" style="animation-delay: 0.2s;">وهٍج</span>
+                        <span class="char-reveal" style="animation-delay: 0.1s;">این</span>
+                    </span>
+                    <span class="block overflow-hidden">
+                        <span class="char-reveal" style="animation-delay: 0.7s;">.فِيَناس</span>
+                        <span class="char-reveal text-green-500/90" style="animation-delay: 0.6s;">وَخجابوَم</span>
+                        <span class="char-reveal text-green-500/90" style="animation-delay: 0.5s;">ذاوٜ</span>
+                        <span class="char-reveal" style="animation-delay: 0.4s;">زوٜن</span>
+                    </span>
+                </div>
+
             </h1>
 
-            <h1 class="text-6xl lang-zh md:text-8xl lg:text-9xl font-medium tracking-tight leading-[0.9] text-white">
-                <span class="block overflow-hidden">
-                    <span class="char-reveal title-zh" style="animation-delay: 0.1s;">让</span>
-                    <span class="char-reveal title-zh text-cyan-500/90" style="animation-delay: 0.2s;">自由</span>
-                    <span class="char-reveal title-zh" style="animation-delay: 0.3s;">重归，</span>
-                </span>
-                <span class="block overflow-hidden">
-                    <span class="char-reveal title-zh" style="animation-delay: 0.4s;">为</span>
-                    <span class="char-reveal title-zh text-lime-500/90" style="animation-delay: 0.5s;">公平</span>
-                    <span class="char-reveal title-zh" style="animation-delay: 0.6s;">贺岁。</span>
-                </span>
-            </h1>
 
-            <p
-                class="max-w-xl mx-auto text-lg md:text-xl text-neutral-400 font-light leading-relaxed reveal-on-scroll delay-300 lang-en">
-                Do the Task and Problems you are not suppose to do<br>— without losing your mind or wasting your time.
-            </p>
+            <div data-translatable
+                class="max-w-xl mx-auto text-lg md:text-xl text-neutral-400 font-light leading-relaxed reveal-on-scroll delay-300">
+                <div>
+                    Do the Task and Problems you are not suppose to do<br>— without losing your mind or wasting your
+                    time.
+                </div>
+                <div>
+                    高效完成那些本不该强加于你的任务与难题<br>——保持清醒，不浪费一丝光阴。
+                </div>
+                <div>
+                    有效率地完成那些不該強加於你的任務與難題<br>──保持清醒，不浪費一絲光陰。
+                </div>
+                <div>
+                    Dau Oqgabom Vam Maqen Vermatenal naqt Finas<br>— vüa kajst vilausen elrë vüa tid obfellen mitauq.
+                </div>
+                <div class="alkano">
+                    ذاوٜ وَخجابوَم بَام ماخهٍن بَهٍرماتهٍنال ناخت فِيَناس<br>— بَوًٜا كایست بَيَلاوٜسهٍن هٍلرهً بَوًٜا
+                    تيَذ وَبفِهٍللهٍن ميَتاوٜخ.<i>1</i>
+                </div>
+            </div>
 
 
-            <p
-                class="max-w-xl mx-auto text-lg md:text-xl text-neutral-400 font-light leading-relaxed reveal-on-scroll delay-300 lang-zh">
-                高效完成那些本不该强加于你的任务与难题<br>——保持清醒，不浪费一丝光阴。
-            </p>
 
-            <div
-                class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 reveal-on-scroll delay-300 lang-en">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 reveal-on-scroll delay-300">
                 <button
                     class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
-                    <a href="install.html">Be Free Now</a>
+                    <a href="install.html" data-translatable>
+                        <span>Be Free Now</span>
+                        <span>现在重获自由</span>
+                        <span>現在重獲自由</span>
+                        <span>Fraj Jec</span>
+                        <span class="alkano">فِرای یهٍط</span>
+                    </a>
                     <iconify-icon icon="lucide:arrow-right"
                         class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
                         width="18"></iconify-icon>
@@ -187,27 +293,17 @@
                 <button id="viewDemoBtn"
                     class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
                     <iconify-icon icon="lucide:play-circle" width="20"></iconify-icon>
-                    View Demo
+                    <div data-translatable>
+                        <span>View Demo</span>
+                        <span>查看演示</span>
+                        <span>查看示範</span>
+                        <span>Demo Sehin</span>
+                        <span class="alkano">ذهٍموَ سهٍهيَن</span>
+                    </div>
                 </button>
             </div>
 
 
-            <div
-                class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 reveal-on-scroll delay-300 lang-zh">
-                <button
-                    class="group relative px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105">
-
-                    <a href="install.html">现在重获自由</a>
-                    <iconify-icon icon="lucide:arrow-right"
-                        class="inline-block ml-2 -mr-1 transition-transform group-hover:translate-x-1"
-                        width="18"></iconify-icon>
-                </button>
-                <button id="viewDemoBtn"
-                    class="px-8 py-4 text-white hover:text-cyan-200 font-medium transition-colors flex items-center gap-2">
-                    <iconify-icon icon="lucide:play-circle" width="20"></iconify-icon>
-                    查看演示
-                </button>
-            </div>
         </div>
 
         <!-- Scroll Indicator -->
@@ -219,32 +315,82 @@
     <!-- Marquee Section -->
     <section class="py-12 border-y border-white/5 bg-black/50 relative z-20 overflow-hidden">
         <div class="marquee-container w-full">
-            <div
-                class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide">
-                <span class="lang-en">No Time Wasting</span> ✦
-                <span class="lang-zh">不再浪费时间</span>
-                <span class="lang-en">Fully Automated</span> ✦
-                <span class="lang-zh">全自动</span>
-                <span class="lang-en">100% Safe and Free</span> ✦
-                <span class="lang-zh">100% 安全及免费</span>
-                <span class="lang-en">No learning curve</span class="lang-en"> ✦
-                <span class="lang-zh">无需学习时间</span>
-                <span class="lang-en">100% Private</span> ✦
-                <span class="lang-zh">100% 私密</span>
-                <span class="lang-en">Minimal Privacy Leak Risk</span> ✦
-                <span class="lang-zh">低泄露概率</span>
-                <span class="lang-en">No Time Wasting</span> ✦
-                <span class="lang-zh">不再浪费时间</span>
-                <span class="lang-en">Fully Automated</span> ✦
-                <span class="lang-zh">全自动</span>
-                <span class="lang-en">100% Safe and Free</span> ✦
-                <span class="lang-zh">100% 安全及免费</span>
-                <span class="lang-en">No learning curve</span class="lang-en"> ✦
-                <span class="lang-zh">无需学习时间</span>
-                <span class="lang-en">100% Private</span> ✦
-                <span class="lang-zh">100% 私密</span>
-                <span class="lang-en">Minimal Privacy Leak Risk</span> ✦
-                <span class="lang-zh">低泄露概率</span>
+            <div data-translatable>
+                <div
+                    class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide">
+                    <span>No Time Wasting</span> ✦
+                    <span>Fully Automated</span> ✦
+                    <span>100% Safe and Free</span> ✦
+                    <span>No learning curve</span> ✦
+                    <span>100% Private</span> ✦
+                    <span>Minimal Privacy Leak Risk</span> ✦
+                    <span>No Time Wasting</span> ✦
+                    <span>Fully Automated</span> ✦
+                    <span>100% Safe and Free</span> ✦
+                    <span>No learning curve</span> ✦
+                    <span>100% Private</span> ✦
+                    <span>Minimal Privacy Leak Risk</span> ✦
+                </div>
+                <div
+                    class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide">
+                    <span>不再浪费时间</span> ✦
+                    <span>全自动</span> ✦
+                    <span>100% 安全及免费</span> ✦
+                    <span>无需学习时间</span> ✦
+                    <span>100% 私密</span> ✦
+                    <span>低泄露概率</span> ✦
+                    <span>不再浪费时间</span> ✦
+                    <span>全自动</span> ✦
+                    <span>100% 安全及免费</span> ✦
+                    <span>无需学习时间</span> ✦
+                    <span>100% 私密</span> ✦
+                    <span>低泄露概率</span> ✦
+                </div>
+                <div
+                    class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide">
+                    <span>不再浪費時間</span> ✦
+                    <span>全自動</span> ✦
+                    <span>100% 安全及免費</span> ✦
+                    <span>無學習時間</span> ✦
+                    <span>100% 私密</span> ✦
+                    <span>低洩漏機率</span> ✦
+                    <span>不再浪費時間</span> ✦
+                    <span>全自動</span> ✦
+                    <span>100% 安全及免費</span> ✦
+                    <span>無學習時間</span> ✦
+                    <span>100% 私密</span> ✦
+                    <span>低洩漏機率</span> ✦
+                </div>
+                <div
+                    class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide">
+                    <span>Tid Obfellen Naqt</span> ✦
+                    <span>Automatiŝ Habo Fall</span> ✦
+                    <span>100% Siker ond Fraj</span> ✦
+                    <span>Lernkurve habo naqt</span> ✦
+                    <span>100% Prevatival</span> ✦
+                    <span>Lag Prevativ Lejk Risiko</span> ✦
+                    <span>Tid Obfellen Naqt</span> ✦
+                    <span>Automatiŝ Habo Fall</span> ✦
+                    <span>100% Siker ond Fraj</span> ✦
+                    <span>Lernkurve habo naqt</span> ✦
+                    <span>100% Prevatival</span> ✦
+                    <span>Lag Prevativ Lejk Risiko</span> ✦
+                </div>
+                <div
+                    class="marquee-content flex gap-12 whitespace-nowrap text-lg text-neutral-500 font-medium tracking-wide alkano">
+                    <span>تيَذ وَبفِهٍللهٍن ناخت</span> ✦
+                    <span>اوٜتوَماتيَش هابوَ فِالل</span> ✦
+                    <span>خوٜنذوَرت فاخزهٍنت سيَكهٍر وَنذ فِرای</span> ✦
+                    <span>لهٍرنكوٜربَهٍ هابوَ ناخت</span> ✦
+                    <span>خوٜنذوَرت فاخزهٍنت فرهٍبَاتيَبَال</span> ✦
+                    <span>لاج فرهٍبَاتيَبَ لهٍیك ريَسيَكوَ</span> ✦
+                    <span>تيَذ وَبفِهٍللهٍن ناخت</span> ✦
+                    <span>اوٜتوَماتيَش هابوَ فِالل</span> ✦
+                    <span>خوٜنذوَرت فاخزهٍنت سيَكهٍر وَنذ فِرای</span> ✦
+                    <span>لهٍرنكوٜربَهٍ هابوَ ناخت</span> ✦
+                    <span>خوٜنذوَرت فاخزهٍنت فرهٍبَاتيَبَال</span> ✦
+                    <span>لاج فرهٍبَاتيَبَ لهٍیك ريَسيَكوَ</span> ✦
+                </div>
             </div>
         </div>
     </section>
@@ -253,17 +399,26 @@
     <section class="py-32 px-4 relative z-10">
         <div class="max-w-4xl mx-auto text-center space-y-24">
             <div class="space-y-6">
-                <p class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll">
-                    <span class="lang-en">Spend an hour or so to do the Problems.</span>
-                    <span class="lang-zh serif-zh">花费一个小时或更多来做题目。</span>
+                <p data-translatable="" class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll">
+                    <span>Spend an hour or so to do the Problems.</span>
+                    <span class="serif-zh">花费一个小时或更多来做题目。</span>
+                    <span class="serif-zh">花一個小時或更多來做題目。 </span>
+                    <span>Ajn elrë Cvin Urom Auqgiban für dau Oqgabom.</span>
+                    <span class="alkano">این هٍلرهً طبَيَن وٜروَم اوٜخجيَبان فِوًٜر ذاوٜ وَخجابوَم</span>
                 </p>
-                <p class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll delay-100">
-                    <span class="lang-en">Desperate about the design of the System.</span>
-                    <span class="lang-zh serif-zh">对系统的设计感到无语。</span>
+                <p data-translatable="" class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll delay-100">
+                    <span>Desperate about the design of the System.</span>
+                    <span class="serif-zh">对系统的设计感到无语。</span>
+                    <span class="serif-zh">對系統的設計感到無言。 </span>
+                    <span>Tizaponten habo für dau Sistema Desigen.</span>
+                    <span class="alkano">تيَزافوَنتهٍن هابوَ فِوًٜر ذاوٜ سيَستهٍما ذهٍسيَجهٍن</span>
                 </p>
-                <p class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll delay-200">
-                    <span class="lang-en">Do not actually want to do this.</span>
-                    <span class="lang-zh serif-zh">被强迫做这一切。</span>
+                <p data-translatable="" class="text-3xl md:text-5xl serif text-neutral-600 reveal-on-scroll delay-200">
+                    <span>Do not actually want to do this.</span>
+                    <span class="serif-zh">被强迫做这一切。</span>
+                    <span class="serif-zh">被強迫做這一切。 </span>
+                    <span>Vam dau Oqgabom maqen Geswaken habo.</span>
+                    <span class="alkano">بَام ذاوٜ وَخجابوَم ماخهٍن جهٍسواكهٍن هابوَ.<i>1</i></span>
                 </p>
             </div>
 
@@ -271,12 +426,20 @@
                 <div class="h-16 w-px bg-gradient-to-b from-transparent via-cyan-500 to-transparent mx-auto mb-12">
                 </div>
                 <h2 class="text-4xl md:text-6xl text-white font-medium tracking-tight">
-                    <span class="lang-en">Down'sicient Math solves all of these with</span>
-                    <span class="lang-zh title-zh">唐氏练习题解决这些只需要</span> <br>
-                    <span class="serif italic text-cyan-500">
-                        <span class="lang-en">one single script.</span>
-                        <span class="lang-zh title-zh">一个脚本。</span>
-                    </span>
+                    <div data-translatable="">
+                        <span>Down'sicient Math solves all of these with</span>
+                        <span class="title-zh">唐氏练习题解决这些只需要</span>
+                        <span class="title-zh">唐氏練習題解決這些只需要</span>
+                        <span>Down'sicient Math allo Disom Lozen</span>
+                        <span class="alkano">اللوَ ذيَسوَم لوَزهٍن Down'sicient Math</span>
+                    </div>
+                    <div data-translatable="" class="serif italic text-cyan-500">
+                        <span>one single script.</span>
+                        <span class="title-zh">一个脚本。</span>
+                        <span class="title-zh">一個腳本。</span>
+                        <span>Ajn Skript mit.</span>
+                        <span class="alkano">این سكريَفت ميَت</span>
+                    </div>
                 </h2>
             </div>
         </div>
@@ -289,97 +452,119 @@
 
                 <!-- Card 1 -->
                 <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group">
                     <div
                         class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
                         <iconify-icon icon="teenyicons:button-outline" width="24"></iconify-icon>
                     </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">One-Click Completion</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        Complete one Problem by one click only, no more action is required. Instantly do everything you
-                        need by one single click.
+                    <h3 class="text-xl text-white font-semibold mb-3" data-translatable="">
+                        <span>One-Click Completion</span>
+                        <span>点击按钮即刻完成</span>
+                        <span>點擊按鈕即刻完成</span>
+                        <span>Ajn-Kliken Finaso</span>
+                        <span class="alkano">این-كليَكهٍن فِيَناسوَ</span>
+                    </h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-translatable="">
+                        <span>Complete one Problem by one click only, no more action is required. Instantly do
+                            everything you
+                            need by one single click.</span>
+                        <span>只需单击一下即可完成一个题目，无需其他操作。一键即可立即完成所有所需操作。</span>
+                        <span>只需單擊一下即可完成一個題目，無需其他操作。一鍵即可立即完成所有所需操作。 </span>
+                        <span>Ajn Oqgabom Finas Ajn Kliken vin nur, Merl Aktion Massen naqt. Vüa Massenom Finas zofrihal
+                            Ajn Kliken vin.</span>
+                        <span class="alkano">این وَخجابوَم فِيَناس این كليَكهٍن بَيَن نوٜر, مهٍرل اكتيَوَن ماسسهٍن ناخت.
+                            بَوًٜا
+                            ماسسهٍنوَم فِيَناس زوَفِريَهال
+                            این كليَكهٍن بَيَن</span>
                     </p>
                 </div>
 
-                <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
-                        <iconify-icon icon="teenyicons:button-outline" width="24"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">点击按钮即刻完成</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        只需单击一下即可完成一个题目，无需其他操作。一键即可立即完成所有所需操作。
-                    </p>
-                </div>
 
 
                 <!-- Card 2 -->
                 <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group">
                     <div
                         class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
                         <iconify-icon icon="vaadin:automation" width="24"></iconify-icon>
                     </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">Automated Process</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        Do the Tasks without even moving your fingers. Get rid of those annoying Tasks and Problems you
-                        are forced to do.
+                    <h3 class="text-xl text-white font-semibold mb-3" data-translatable="">
+                        <span>Automated Process</span>
+                        <span>全自动流程</span>
+                        <span>全自動流程</span>
+                        <span>Verfaqen Automatiŝ</span>
+                        <span class="alkano">بَهٍرفِاخهٍن اوٜتوَماتيَش</span>
+                    </h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-translatable="">
+                        <span>Do the Tasks without even moving your fingers. Get rid of those annoying Tasks and
+                            Problems you
+                            are forced to do.</span>
+                        <span>无需动手指即可完成任务。摆脱那些你被迫去做的烦人任务和难题。</span>
+                        <span>無需動手指即可完成任務。擺脫那些你被迫去做的煩人任務和難題。 </span>
+                        <span>Dau Oqgabom Maqen Vüa Fingerom Massen naqt. Dau Oqgabom Geswaken habo Maqen Massen
+                            naqt.</span>
+                        <span class="alkano">ذاوٜ وَخجابوَم ماخهٍن بَوًٜا فِيَنجهٍروَم ماسسهٍن ناخت. ذاوٜ وَخجابوَم
+                            جهٍسواكهٍن هابوَ
+                            ماخهٍن ماسسهٍن
+                            ناخت</span>
                     </p>
                 </div>
 
-                <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
-                        <iconify-icon icon="vaadin:automation" width="24"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">全自动流程</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        无需动手指即可完成任务。摆脱那些你被迫去做的烦人任务和难题。
-                    </p>
-                </div>
 
 
                 <!-- Card 3 -->
                 <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-200 hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-200 hover:bg-white/5 transition-colors duration-500 group">
                     <div
                         class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
                         <iconify-icon icon="mingcute:ai-line" width="24"></iconify-icon>
                     </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">AI Integration</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        Internal AI integrated, can be easy accessed through the sidebar. Break through the lies they
-                        made.
+                    <h3 class="text-xl text-white font-semibold mb-3" data-translatable="">
+                        <span>AI Integration</span>
+                        <span>内置 AI</span>
+                        <span>內建 AI</span>
+                        <span>AI</span>
+                        <span>AI</span>
+                    </h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-translatable="">
+                        <span>Internal AI integrated, can be easy accessed through the sidebar. Break through the lies
+                            they
+                            made.</span>
+                        <span>内置人工智能，可通过侧边栏轻松访问。揭穿他们编织的谎言。</span>
+                        <span>內建人工智慧，可透過側邊欄輕鬆存取。揭穿他們編織的謊言。 </span>
+                        <span>AI en, Auffen Zajtbar vin.</span>
+                        <span class="alkano">هٍن, اوٜفِفِهٍن زایتبار بَيَن AI</span>
                     </p>
                 </div>
 
-                <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-200 hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
-                        <iconify-icon icon="mingcute:ai-line" width="24"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">内置 AI</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        内置人工智能，可通过侧边栏轻松访问。揭穿他们编织的谎言。
-                    </p>
-                </div>
 
 
                 <!-- Card 4 (Wide) -->
                 <div
-                    class="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group flex flex-col md:flex-row gap-8 items-center lang-en">
+                    class="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group flex flex-col md:flex-row gap-8 items-center">
                     <div class="flex-1 space-y-4">
                         <div
                             class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-2 group-hover:scale-110 transition-transform">
                             <iconify-icon icon="oui:nav-ui" width="24"></iconify-icon>
                         </div>
-                        <h3 class="text-xl text-white font-semibold">Modern and Easy-to-use UI</h3>
-                        <p class="text-neutral-400 leading-relaxed text-sm max-w-md">
-                            Get a easy-to-use, modern user interface for your auxiliary tool. Better than the user
-                            interfaces they made for you.
+                        <h3 class="text-xl text-white font-semibold" data-translatable="">
+                            <span>Modern and Easy-to-use UI</span>
+                            <span>现代且易于使用的用户界面</span>
+                            <span>現代且易於使用的使用者介面</span>
+                            <span>Modern ond Binucen-Ajnfaqal UI</span>
+                            <span class="alkano">موَذهٍرن وَنذ بيَنوٜطهٍن-اینفِاخال وٜيَ</span>
+                        </h3>
+                        <p class="text-neutral-400 leading-relaxed text-sm max-w-md" data-translatable>
+                            <span>Get a easy-to-use, modern user interface for your auxiliary tool. Better than the user
+                                interfaces they made for you.</span>
+                            <span>为您的辅助工具获取一个易于使用、现代化的用户界面。比他们为您设计的那些用户界面更好。</span>
+                            <span>為您的輔助工具取得一個易於使用、現代化的使用者介面。比他們為您設計的那些用戶介面更好。 </span>
+                            <span>Ajn Binucen-Ajnfaqal, Modern Binucenuj Interface. Allo Binucenuj Interface Ci maqen
+                                habo Auqgoten.</span>
+                            <span class="alkano">این بيَنوٜطهٍن-اینفِاخال, موَذهٍرن بيَنوٜطهٍنوٜی يَنتهٍرفِاطهٍ. اللوَ
+                                بيَنوٜطهٍنوٜی
+                                يَنتهٍرفِاطهٍ طيَ ماخهٍن
+                                هابوَ اوٜخجوَتهٍن</span>
                         </p>
                     </div>
                     <!-- UI Mockup Miniature -->
@@ -397,59 +582,34 @@
                     </div>
                 </div>
 
-                <div
-                    class="glass-panel p-8 rounded-3xl md:col-span-2 lg:col-span-2 reveal-on-scroll hover:bg-white/5 transition-colors duration-500 group flex flex-col md:flex-row gap-8 items-center lang-zh serif-zh">
-                    <div class="flex-1 space-y-4">
-                        <div
-                            class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-2 group-hover:scale-110 transition-transform">
-                            <iconify-icon icon="oui:nav-ui" width="24"></iconify-icon>
-                        </div>
-                        <h3 class="text-xl text-white font-semibold">现代且易于使用的用户界面</h3>
-                        <p class="text-neutral-400 leading-relaxed text-sm max-w-md">
-                            为您的辅助工具获取一个易于使用、现代化的用户界面。比他们为您设计的那些用户界面更好。
-                        </p>
-                    </div>
-                    <!-- UI Mockup Miniature -->
-                    <div
-                        class="flex-1 w-full bg-neutral-900 border border-white/10 rounded-xl p-4 shadow-2xl skew-y-1 transform transition-transform group-hover:skew-y-0">
-                        <div class="flex items-center gap-2 mb-3">
-                            <div class="w-2 h-2 rounded-full bg-red-500"></div>
-                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="h-8 w-3/4 bg-neutral-800 rounded animate-pulse"></div>
-                            <div class="h-32 w-full bg-neutral-800 rounded animate-pulse opacity-50"></div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <!-- Card 5 -->
                 <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-en">
+                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group">
                     <div
                         class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
                         <iconify-icon icon="mdi:bug-outline" width="24"></iconify-icon>
                     </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">Swift Bug Fixing and Contact</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        As you report any error, we will be starting analyzing the bug. We will be on for contact most
-                        of the time.
+                    <h3 class="text-xl text-white font-semibold mb-3" data-translatable="">
+                        <span>Swift Bug Fixing and Contact</span>
+                        <span>快速修复漏洞及联系</span>
+                        <span>快速修復漏洞及聯絡</span>
+                        <span>Bug Fiksen ond Kontakt Ŝnahwal</span>
+                        <span>بوٜج فِيَكسهٍن وَنذ كوَنتاكت شناهوال</span>
+                    </h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-translatable="">
+                        <span>As you report any error, we will be starting analyzing the bug. We will be on for contact
+                            most
+                            of the time.</span>
+                        <span>您一旦报告任何错误，我们将立即开始分析该错误。我们大部分时间都会在线，方便您随时联系。</span>
+                        <span>您一旦報告任何錯誤，我們將立即開始分析該錯誤。我們大部分時間都會上線，方便您隨時聯繫。 </span>
+                        <span>Ĉol dau Bug Arbajten Vü Rapporten van. Ĉol Online dau Tid mest.</span>
+                        <span class="alkano">صوَل ذاوٜ بوٜج اربایتهٍن بَوًٜ راففوَرتهٍن بَان. صوَل وَنليَنهٍ ذاوٜ تيَذ
+                            مهٍست</span>
                     </p>
                 </div>
 
-                <div
-                    class="glass-panel p-8 rounded-3xl reveal-on-scroll delay-100 hover:bg-white/5 transition-colors duration-500 group lang-zh serif-zh">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6 group-hover:scale-110 transition-transform">
-                        <iconify-icon icon="mdi:bug-outline" width="24"></iconify-icon>
-                    </div>
-                    <h3 class="text-xl text-white font-semibold mb-3">快速修复漏洞及联系</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">
-                        您一旦报告任何错误，我们将立即开始分析该错误。我们大部分时间都会在线，方便您随时联系。
-                    </p>
-                </div>
 
             </div>
         </div>
@@ -458,45 +618,69 @@
     <!-- Tenant Experience Section -->
     <section id="experience" class="py-32 px-4 relative z-10 bg-neutral-900/30">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-20 reveal-on-scroll lang-en">
-                <h2 class="text-3xl md:text-5xl text-white font-serif mb-6">A seamless journey for You</h2>
-                <p class="text-neutral-400">From the home page to the Tasks, Quick and Free.</p>
+            <div class="text-center mb-20 reveal-on-scroll" data-translatable="">
+                <div>
+                    <h2 class="text-3xl md:text-5xl text-white font-serif mb-6">A seamless journey for You</h2>
+                    <p class="text-neutral-400">From the home page to the Tasks, Quick and Free.</p>
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-5xl text-white serif-zh mb-6">快速上手，无缝衔接</h2>
+                    <p class="text-neutral-400">从主页到任务页，快速、免费、自由。</p>
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-5xl text-white serif-zh mb-6">快速上手，無縫銜接</h2>
+                    <p class="text-neutral-400">從首頁到任務頁，快速、免費、自由。 </p>
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-5xl text-white font-serif mb-6">Lernen Ŝnahwal</h2>
+                    <p class="text-neutral-400">Dau Qausezijet zun dau Oqgabom vin, Ŝnahwal ond Fraj.</p>
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-5xl text-white font-serif mb-6 alkano">لهٍرنهٍن شناهوال</h2>
+                    <p class="text-neutral-400 alkano">ذاوٜ خاوٜسهٍزيَیهٍت زوٜن ذاوٜ وَخجابوَم بَيَن, شناهوال وَنذ فِرای
+                    </p>
+                </div>
             </div>
 
-            <div class="text-center mb-20 reveal-on-scroll lang-zh">
-                <h2 class="text-3xl md:text-5xl text-white serif-zh mb-6">快速上手，无缝衔接</h2>
-                <p class="text-neutral-400">从主页到任务页，快速、免费、自由。</p>
-            </div>
 
             <div class="relative border-l border-white/10 ml-6 md:ml-1/2 space-y-12 pb-12">
                 <!-- Step 1 -->
-                <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en">
+                <div class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll">
                     <div
                         class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 ring-4 ring-neutral-900">
                     </div>
                     <div class="md:text-right md:order-1">
-                        <h4 class="text-xl text-white font-medium mb-2">Explore Your new Friend</h4>
-                        <p class="text-neutral-500 text-sm">Go ahead and check Your tool.
-                            It is an add-on<br>which basically changes nothing, except the new<br>experiences we added.
-                            Have a wonderful journey!</p>
-                    </div>
-                    <div class="hidden md:block md:order-2">
-                        <div
-                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
-                            1</div>
-                    </div>
-                </div>
-
-                <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh">
-                    <div
-                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-cyan-500 ring-4 ring-neutral-900">
-                    </div>
-                    <div class="md:text-right md:order-1">
-                        <h4 class="text-xl text-white font-medium mb-2">探索您的新“朋友”</h4>
-                        <p class="text-neutral-500 text-sm">去看看您的工具，他只是一个插件，基本上没有改变什么，
-                            <br>除了我们的妙妙工具。祝您旅途愉快！
+                        <h4 class="text-xl text-white font-medium mb-2" data-translatable="">
+                            <span>Explore Your new Friend</span>
+                            <span>探索您的新“朋友”</span>
+                            <span>探索您的新「朋友」</span>
+                            <span>Vüa Frond Najal</span>
+                            <span class="alkano">بَوًٜا فِروَنذ نایال</span>
+                        </h4>
+                        <p class="text-neutral-500 text-sm" data-translatable="">
+                            <span>
+                                Go ahead and check Your tool.
+                                It is an add-on<br>which basically changes nothing, except the new<br>experiences we
+                                added.
+                                Have a wonderful journey!
+                            </span>
+                            <span>
+                                去看看您的工具，他只是一个插件，基本上没有改变什么，
+                                <br>除了我们的妙妙工具。祝您旅途愉快！
+                            </span>
+                            <span>
+                                去看看您的工具，他只是一個插件，基本上沒有改變什麼，
+                                <br>除了我們的妙用工具。祝您旅途愉快！
+                            </span>
+                            <span>
+                                Vam Dau Arbajtzog Sehin bitte. Ik Ajn Add-on est, <br>Vitore Najal Manchal habo.
+                                Vam Ajn Glad Weg habo!
+                            </span>
+                            <span class="alkano">
+                                بَام ذاوٜ اربایتزوَج سهٍهيَن بيَتتهٍ. يَك این اذذ-وَن هٍست<br>بَيَتوَرهٍ نایال مانطهال
+                                هابوَ.
+                                بَام این جلاذ وهٍج هابوَ!<i>1</i>
+                            </span>
                         </p>
                     </div>
                     <div class="hidden md:block md:order-2">
@@ -505,10 +689,11 @@
                             1</div>
                     </div>
                 </div>
+
 
                 <!-- Step 2 -->
                 <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en delay-100">
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll delay-100">
                     <div
                         class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
                     </div>
@@ -518,56 +703,84 @@
                             2</div>
                     </div>
                     <div class="md:order-2">
-                        <h4 class="text-xl text-white font-medium mb-2">One-Click Finishing</h4>
-                        <p class="text-neutral-500 text-sm">Having the shiny button for You to click on.
-                            Instantly, everything is finished. No need to worry about anything.</p>
+                        <h4 class="text-xl text-white font-medium mb-2" data-translatable="">
+                            <span>
+                                One-Click Finishing
+                            </span>
+                            <span>
+                                左键单击，一键完成
+                            </span>
+                            <span>
+                                左鍵單擊，一鍵完成
+                            </span>
+                            <span>
+                                Ajn-Kliken Finas
+                            </span>
+                            <span class="alkano">
+                                این-كليَكهٍن فِيَناس
+                            </span>
+                        </h4>
+                        <p class="text-neutral-500 text-sm" data-translatable="">
+                            <span>
+                                Having the shiny button for You to click on.
+                                Instantly, everything is finished. No need to worry about anything.
+                            </span>
+                            <span>
+                                一个全新的闪亮按钮等着您去点击。
+                                瞬间，一切就完成了。<br>还有什么是好担心的？
+                            </span>
+                            <span>
+                                一個全新的閃亮按鈕等著您去點擊。
+                                瞬間，一切就完成了。 <br>還有什麼好擔心的？
+                            </span>
+                            <span>
+                                Dau Button Najal habo, Vam Ik Kliken am, Vafor naqt?
+                                <br>Zofrihal, Allo Finas. Button Got, Ik est naqt?
+                            </span>
+                            <span class="alkano">
+                                ذاوٜ بوٜتتوَن نایال هابوَ, بَام يَك كليَكهٍن ام, بَافِوَر ناخت?<i>1</i>
+                                <br>زوَفِريَهال, اللوَ فِيَناس. بوٜتتوَن جوَت, يَك هٍست ناخت?<i>1</i>
+                            </span>
+                        </p>
                     </div>
                 </div>
 
-                <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh delay-100">
-                    <div
-                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
-                    </div>
-                    <div class="hidden md:flex md:justify-end md:order-1">
-                        <div
-                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
-                            2</div>
-                    </div>
-                    <div class="md:order-2">
-                        <h4 class="text-xl text-white font-medium mb-2">左键单击，一键完成</h4>
-                        <p class="text-neutral-500 text-sm">一个全新的闪亮按钮等着您去点击。
-                            瞬间，一切就完成了。<br>还有什么是好担心的？</p>
-                    </div>
-                </div>
 
                 <!-- Step 3 -->
                 <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en delay-200">
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll delay-200">
                     <div
                         class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
                     </div>
                     <div class="md:text-right md:order-1">
-                        <h4 class="text-xl text-white font-medium mb-2">Continuing</h4>
-                        <p class="text-neutral-500 text-sm">Continue doing this results in an experience that
-                            You may never forget. Hold on, more features approaching!</p>
-                    </div>
-                    <div class="hidden md:block md:order-2">
-                        <div
-                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
-                            3</div>
-                    </div>
-                </div>
-
-                <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh delay-200">
-                    <div
-                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
-                    </div>
-                    <div class="md:text-right md:order-1">
-                        <h4 class="text-xl text-white font-medium mb-2">继续前进</h4>
-                        <p class="text-neutral-500 text-sm">继续这样做，你将获得一段永生难忘的体验。
-                            <br>别急，还有更多好东西在后头！
+                        <h4 class="text-xl text-white font-medium mb-2" data-translatable="">
+                            <span>Continuing</span>
+                            <span>继续前进</span>
+                            <span>繼續前進</span>
+                            <span>Merl ond Merl</span>
+                            <span class="alkano">مهٍرل وَنذ مهٍرل</span>
+                        </h4>
+                        <p class="text-neutral-500 text-sm" data-translatable="">
+                            <span>
+                                Continue doing this results in an experience that
+                                You may never forget. Hold on, more features approaching!
+                            </span>
+                            <span>
+                                继续这样做，你将获得一段永生难忘的体验。
+                                <br>别急，还有更多好东西在后头！
+                            </span>
+                            <span>
+                                繼續這樣做，你將獲得一段永生難忘的體驗。
+                                <br>別急，還有更多好東西在後頭！
+                            </span>
+                            <span>
+                                Vü dau Gotauq Erfaquŋ Kwet dau Button Kliken vin.
+                                Merl ond Merl Vitorem Vurakin!
+                            </span>
+                            <span class="alkano">
+                                بَوًٜ ذاوٜ جوَتاوٜخ هٍرفِاخوٜںج كوهٍت ذاوٜ بوٜتتوَن كليَكهٍن بَيَن.
+                                مهٍرل وَنذ مهٍرل بَيَتوَرهٍم بَوٜراكيَن!<i>1</i>
+                            </span>
                         </p>
                     </div>
                     <div class="hidden md:block md:order-2">
@@ -576,10 +789,11 @@
                             3</div>
                     </div>
                 </div>
+
 
                 <!-- Step 4 -->
                 <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-en delay-300">
+                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll delay-300">
                     <div
                         class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
                     </div>
@@ -589,30 +803,39 @@
                             4</div>
                     </div>
                     <div class="md:order-2">
-                        <h4 class="text-xl text-white font-medium mb-2">Even More</h4>
-                        <p class="text-neutral-500 text-sm">AI Intergration, Automation Process,
-                            even Chat with Your friends! It is no longer a dream,
-                            but a truth that You and us made together.</p>
-                    </div>
-                </div>
-
-                <div
-                    class="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-center reveal-on-scroll lang-zh delay-300">
-                    <div
-                        class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-neutral-700 ring-4 ring-neutral-900">
-                    </div>
-                    <div class="hidden md:flex md:justify-end md:order-1">
-                        <div
-                            class="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-neutral-400 border border-white/5">
-                            4</div>
-                    </div>
-                    <div class="md:order-2">
-                        <h4 class="text-xl text-white font-medium mb-2">还有更多</h4>
-                        <p class="text-neutral-500 text-sm">人工智能集成、流程自动化，甚至可以和朋友聊天！
-                            <br>这不再是梦想，而是你我共同创造的现实。
+                        <h4 class="text-xl text-white font-medium mb-2" data-translatable="">
+                            <span>Even More</span>
+                            <span>还有更多</span>
+                            <span>還有更多</span>
+                            <span>Ond Merl</span>
+                            <span class="alkano">وَنذ مهٍرل</span>
+                        </h4>
+                        <p class="text-neutral-500 text-sm" data-translatable="">
+                            <span>
+                                AI Intergration, Automation Process,
+                                even Chat with Your friends! It is no longer a dream,
+                                but a truth that You and us made together.
+                            </span>
+                            <span>
+                                人工智能集成、流程自动化，甚至可以和朋友聊天！
+                                <br>这不再是梦想，而是你我共同创造的现实。
+                            </span>
+                            <span>
+                                人工智慧整合、流程自動化，甚至可以和朋友聊天！
+                                <br>這不再是夢想，而是你我共同創造的現實。
+                            </span>
+                            <span>
+                                AI, Verfaqen Automatiŝ, ond Vüa Frondom Ĉatten mit.
+                                Ik Traum est naqt, aver Ajn Zaqe Rehal.
+                            </span>
+                            <span class="alkano">
+                                ايَ, بَهٍرفِاخهٍن اوٜتوَماتيَش, وَنذ بَوًٜا فِروَنذوَم صاتتهٍن ميَت.
+                                يَك تراوٜم هٍست ناخت, ابَهٍر این زاخهٍ رهٍهال.<i>1</i>
+                            </span>
                         </p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -625,50 +848,77 @@
         </div>
 
         <div class="relative z-10 text-center max-w-3xl space-y-10">
-            <h2 class="text-5xl md:text-7xl serif text-white tracking-tight leading-tight reveal-on-scroll lang-en">
-                Stop doing the Problems <br>
-                <span class="italic text-neutral-500">in pain.</span>
+            <h2 class="text-5xl md:text-7xl serif text-white tracking-tight leading-tight reveal-on-scroll"
+                data-translatable="">
+                <span>
+                    Stop doing the Problems <br>
+                    <span class="italic text-neutral-500">in pain.</span>
+                </span>
+                <span class="title-zh">
+                    让自由<br>
+                    <span class="italic text-neutral-500">荣归故里。</span>
+                </span>
+                <span class="title-zh">
+                    讓自由<br>
+                    <span class="italic text-neutral-500">榮歸故裡。 </span>
+                </span>
+                <span>
+                    Dau Oqgabom Maqen Malglad <br>
+                    <span class="italic text-neutral-500">Stoppen Jec.</span>
+                </span>
+                <span class="alkano">
+                    ذاوٜ وَخجابوَم ماخهٍن مالجلاذ <br>
+                    <span class="italic text-neutral-500">ستوَففهٍن یهٍط.<i>1</i></span>
+                </span>
             </h2>
 
-            <h2
-                class="text-5xl md:text-7xl serif text-white tracking-tight leading-tight reveal-on-scroll lang-zh title-zh">
-                让自由<br>
-                <span class="italic text-neutral-500">荣归故里。</span>
+            <h2 class="text-5xl md:text-7xl serif text-white tracking-tight leading-tight reveal-on-scroll title-zh">
             </h2>
 
-            <div class="flex flex-col items-center gap-4 reveal-on-scroll delay-100 lang-en">
+            <div class="flex flex-col items-center gap-4 reveal-on-scroll delay-100">
                 <button
                     class="cyan-glow px-10 py-5 bg-cyan-500 text-black text-lg font-bold rounded-full hover:bg-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.6)]">
 
-                    <a href="install.html">Start with Down'sicient</a>
+                    <a href="install.html" data-translatable="">
+                        <span>Start with Down'sicient</span>
+                        <span>开始唐氏</span>
+                        <span>開始唐氏</span>
+                        <span>Down'sicient Bekinnen mit</span>
+                        <span class="alkano">بهٍكيَننهٍن ميَت Down'sicient Math</span>
+                    </a>
                 </button>
-                <p class="text-neutral-500 text-sm">Free to start · Takes under a minute</p>
+                <p class="text-neutral-500 text-sm" data-translatable="">
+                    <span>Free to start · Takes under a minute</span>
+                    <span>免费开始 - 不到一分钟搞定</span>
+                    <span>免費開始 - 不到一分鐘搞定</span>
+                    <span>Bekinnen Fraj - Ajn Minut Unter</span>
+                    <span class="alkano">بهٍكيَننهٍن فِرای - این ميَنوٜت وٜنتهٍر</span>
+                </p>
             </div>
 
-            <div class="flex flex-col items-center gap-4 reveal-on-scroll delay-100 lang-zh">
-                <button
-                    class="cyan-glow px-10 py-5 bg-cyan-500 text-black text-lg font-bold rounded-full hover:bg-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(245,158,11,0.6)]">
-                    <a href="install.html">开始唐氏</a>
-                </button>
-                <p class="text-neutral-500 text-sm">免费开始 - 不到一分钟搞定</p>
-            </div>
         </div>
     </section>
     <!-- Demo Modal (Pop-up) -->
     <div id="demoModal" class="modal">
         <div id="modalContent" class="modal-content">
             <div class="modal-header">
-                <h3 class="text-lg font-medium text-white">
-                    <span class="lang-en">Demo Video</span>
-                    <span class="lang-zh">演示视频</span>
+                <h3 class="text-lg font-medium text-white" data-translatable="">
+                    <span>Demo Video</span>
+                    <span>演示视频</span>
+                    <span>示範影片</span>
+                    <span>Demo Video</span>
+                    <span class="alkano">ذهٍموَ بَيَذهٍوَ</span>
                 </h3>
                 <button id="closeModal" class="modal-close">×</button>
             </div>
             <div class="modal-body">
                 <!-- Placeholder Video (You can replace with real video or YouTube embed) -->
-                <div class="w-full h-[540px] bg-neutral-900 flex items-center justify-center text-neutral-400 text-xl">
-                    <span class="lang-en">Demo Video Placeholder</span>
-                    <span class="lang-zh">演示视频占位符</span>
+                <div data-translatable=""
+                    class="w-full h-[540px] bg-neutral-900 flex items-center justify-center text-neutral-400 text-xl">
+                    <span>Demo Video Placeholder</span>
+                    <span>演示视频占位符</span>
+                    <span>示範影片佔位符</span>
+                    <span>Demo Video Placeholder</span>
                     <!-- Optional: Real embed example -->
                     <!-- <iframe width="100%" height="540" src="https://www.youtube.com/embed/PLACEHOLDER_VIDEO_ID" title="Demo" frameborder="0" allowfullscreen></iframe> -->
                 </div>

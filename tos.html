@@ -19,6 +19,7 @@
         href="https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Semibold.min.css" />
     <link rel="icon" href="./icon.png" />
     <link rel="stylesheet" href="index.css" />
+    <script src="./dom-i18n.min.js"></script>
 </head>
 
 <body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200 lang-en">
@@ -30,34 +31,69 @@
             Down'sicient
         </a>
         <div class="hidden md:flex gap-8 text-sm font-medium text-neutral-300">
-            <a href="./index.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Home</span>
-                <span class="lang-zh">主页</span>
+            <a href="./index.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Home</span>
+                <span>主页</span>
+                <span>首頁</span>
+                <span>Qausezijet</span>
+                <span class="alkano">خاوٜسهٍزيَیهٍت</span>
             </a>
-            <a href="./install.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Install</span>
-                <span class="lang-zh">安装</span>
+            <a href="./install.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Install</span>
+                <span>安装</span>
+                <span>安裝</span>
+                <span>Enstaliren</span>
+                <span class="alkano">هٍنستاليَرهٍن</span>
             </a>
-            <a href="./privacy.html" class="hover:text-white transition-colors">
-                <span class="lang-en">Privacy Policy</span>
-                <span class="lang-zh">隐私政策</span>
+            <a href="./privacy.html" class="hover:text-white transition-colors" data-translatable>
+                <span>Privacy Policy</span>
+                <span>隐私政策</span>
+                <span>隱私權政策</span>
+                <span>Prevativorejel</span>
+                <span class="alkano">فرهٍبَاتيَبَوَرهٍیهٍل</span>
             </a>
-            <a href="./tos.html" class="hover:text-white transition-colors">
-                <span class="lang-en">ToS</span>
-                <span class="lang-zh">服务条款</span>
+            <a href="./tos.html" class="hover:text-white transition-colors" data-translatable>
+                <span>ToS</span>
+                <span>服务条款</span>
+                <span>服務條款</span>
+                <span>Zerbistorejel</span>
+                <span class="alkano">زهٍربيَستوَرهٍیهٍل</span>
             </a>
         </div>
         <div class="flex items-center gap-4">
-            <button onclick="toggleLang()"
-                class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
-                <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
-                <span class="lang-en">EN</span>
-                <span class="lang-zh">中</span>
-            </button>
-            <a href="#"
+            <div class="relative">
+                <button id="langToggle"
+                    class="text-xs font-medium text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider">
+                    <iconify-icon icon="lucide:globe" width="14"></iconify-icon>
+                    <span id="currentLang" data-translatable="">
+                        <span>Language</span>
+                        <span>语言</span>
+                        <span>語言</span>
+                        <span>Spraqe</span>
+                        <span class="alkano">سفراخهٍ</span>
+                    </span>
+                </button>
+                <div id="langMenu"
+                    class="absolute right-0 mt-2 w-64 bg-neutral-800 border border-neutral-700 rounded-md shadow-lg hidden z-50">
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="eng">English (US)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="zhs">简体中文 (中国大陆)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="zht">繁體中文 (中国台湾)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="sqv">Suqavispraq (Waul)</button>
+                    <button class="block w-full text-left px-4 py-2 text-sm text-neutral-300 hover:bg-neutral-700"
+                        data-lang="akn">ال كانوَسفراخ (صوٜںجلوَںج)</button>
+                </div>
+            </div>
+            <a href="#" data-translatable
                 class="text-sm font-medium text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                <span class="lang-en">Login</span>
-                <span class="lang-zh">登录</span>
+                <span>Login</span>
+                <span>登录</span>
+                <span>登入</span>
+                <span>Züqhen</span>
+                <span class="alkano">زوًٜخههٍن</span>
             </a>
         </div>
     </nav>
@@ -72,26 +108,43 @@
     <section class="relative pt-32 pb-16 px-4 text-center">
         <div class="absolute inset-0 z-0 bg-grid-pattern opacity-20"></div>
         <div class="relative z-10 max-w-4xl mx-auto space-y-6">
-            <div
+            <div data-translatable=""
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-cyan-400 mb-6 reveal-on-scroll">
-                <span class="lang-en">Last updated: March 2026</span>
-                <span class="lang-zh">最后更新：2026年3月</span>
+                <span>Last updated: March 2026</span>
+                <span>最后更新：2026年3月</span>
+                <span>最後更新：2026年3月</span>
+                <span>Uppdaterijen Najal: 2026/03</span>
+                <span class="alkano">وٜففذاتهٍريَیهٍن نایال: 2026/03</span>
             </div>
 
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-tight text-white">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-tight text-white"
+                data-translatable="">
                 <span class="block overflow-hidden">
                     <span class="char-reveal lang-en" style="animation-delay: 0.1s;">Terms</span>
                     <span class="char-reveal lang-en" style="animation-delay: 0.2s;">of</span>
                     <span class="char-reveal lang-en" style="animation-delay: 0.3s;">Service</span>
                 </span>
                 <span class="block overflow-hidden">
-                    <span class="char-reveal lang-zh title-zh" style="animation-delay: 0.1s;">服务条款</span>
+                    <span class="char-reveal title-zh" style="animation-delay: 0.1s;">服务条款</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal title-zh" style="animation-delay: 0.1s;">服務條款</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal" style="animation-delay: 0.1s;">Zerbistorejel</span>
+                </span>
+                <span class="block overflow-hidden">
+                    <span class="char-reveal" style="animation-delay: 0.1s;">زهٍربيَستوَرهٍیهٍل</span>
                 </span>
             </h1>
 
-            <p class="text-xl text-neutral-400 max-w-2xl mx-auto reveal-on-scroll delay-200">
+            <p class="text-xl text-neutral-400 max-w-2xl mx-auto reveal-on-scroll delay-200" data-translatable>
                 <span class="lang-en">Our terms ensure fair and empowered use of our tools.</span>
                 <span class="lang-zh">我们的条款确保公平和赋权使用我们的工具。</span>
+                <span class="lang-zh">我們的條款確保公平和賦權使用我們的工具。<br>(仅提供英文与简体中文版)</span>
+                <span>Ĉola Rejel benutzen fajral Ĉola Arbajtzog vin Siqern. <br>(Anglispraq ond Ĉinezispraq Simplial en
+                    nur)</span>
+                <span class="alkano">صوَلا رهٍیهٍل بهٍنوٜتزهٍن فِایرال صوَلا اربایتزوَج بَيَن سيَخهٍرن.<br> (انجليَسفراخ وَنذ صيَنهٍزيَسفراخ سيَمفليَال هٍن نوٜر)</span>
             </p>
         </div>
     </section>
@@ -102,197 +155,196 @@
 
             <!-- Overview -->
             <div class="reveal-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">1. Overview</span>
                     <span class="lang-zh">一、概述</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
-                    <p>Welcome to Down'sicient Studio ("we", "us", or "our"). These Terms of Service ("Terms") govern
-                        your access to, download of, and use of our software products, including browser extensions,
-                        user scripts, websites, and related materials (collectively, the "Products").</p>
-                    <p>By installing, downloading, accessing, or using any of the Products, you agree to be bound by
-                        these Terms. If you do not agree, do not install or use the Products.</p>
-                </div>
+                <div data-translatable="">
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                        <p>Welcome to Down'sicient Studio ("we", "us", or "our"). These Terms of Service ("Terms")
+                            govern
+                            your access to, download of, and use of our software products, including browser extensions,
+                            user scripts, websites, and related materials (collectively, the "Products").</p>
+                        <p>By installing, downloading, accessing, or using any of the Products, you agree to be bound by
+                            these Terms. If you do not agree, do not install or use the Products.</p>
+                    </div>
 
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
-                    <p>欢迎来到 Down'sicient
-                        Studio（以下简称“我们”）。本服务条款（以下简称“条款”）规范您对我们软件产品（包括浏览器扩展程序、用户脚本、网站及相关资料，统称为“产品”）的访问、下载和使用。</p>
-                    <p>安装、下载、访问或使用任何产品，即表示您同意受本条款约束。如果您不同意，请勿安装或使用产品。</p>
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                        <p>欢迎来到 Down'sicient
+                            Studio（以下简称“我们”）。本服务条款（以下简称“条款”）规范您对我们软件产品（包括浏览器扩展程序、用户脚本、网站及相关资料，统称为“产品”）的访问、下载和使用。</p>
+                        <p>安装、下载、访问或使用任何产品，即表示您同意受本条款约束。如果您不同意，请勿安装或使用产品。</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Eligibility -->
             <div class="reveal-on-scroll delay-100">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">2. Eligibility</span>
                     <span class="lang-zh">二、资格</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4"
+                    data-translatable="">
                     <p>You must be at least 13 years old to use the Products. If you are a minor, you represent that you
                         have obtained permission from your parent or legal guardian.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>您必须年满13周岁才能使用本产品。如果您未成年，则您声明您
                         已获得您的父母或法定监护人的许可。</p>
                 </div>
+
             </div>
 
             <!-- Description of the Products -->
             <div class="reveal-on-scroll delay-200">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">3. Description of the Products</span>
                     <span class="lang-zh">三、产品描述</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable="">
                     <p>The Products are local productivity and accessibility utilities that operate entirely on your
                         device. They analyze webpage content locally in your browser to provide features that may assist
                         with usability or accessibility on certain websites or platforms, and to restore what should
                         never have been taken away without consent. They only collect information that is voluntarily
                         given. Our enforcement is limited to account management, where applicable, reflecting our
                         commitment to user autonomy.</p>
-                </div>
 
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>这些产品是完全在您的设备上运行的本地生产力和辅助功能工具。
                         它们会在您的浏览器中本地分析网页内容，以提供有助于提升某些网站或平台可用性或辅助功能的功能，
                         并恢复未经同意不应被移除的内容。
                         它们仅收集用户自愿提供的信息。
                         我们的执法仅限于账户管理（如适用），这体现了我们对用户自主权的承诺。</p>
                 </div>
+
             </div>
 
             <!-- License Grant -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">4. License Grant</span>
                     <span class="lang-zh">四、许可授予</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable="">
                     <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive,
                         non-transferable, revocable license to install and use the Products solely for your personal,
                         non-commercial use, to reclaim your time and learning on your own terms.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>在您遵守这些条款的前提下，我们授予您一项有限的、非独占的、
                         不可转让的、可撤销的许可，允许您仅出于个人、
                         非商业用途安装和使用产品，以便您能够按照自己的方式掌控时间和学习。</p>
                 </div>
+
             </div>
 
             <!-- User Conduct and Responsibilities -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">5. User Conduct and Responsibilities</span>
                     <span class="lang-zh">五、用户行为和责任</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
-                    <p>You agree to:</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>Use the Products only in accordance with applicable laws.</li>
-                        <li>Not use the Products to violate the terms of service of any third-party platform.</li>
-                        <li>Not attempt to interfere with, disrupt, reverse-engineer, decompile, disassemble, or gain
-                            unauthorized access to any third-party system or the Products themselves.</li>
-                        <li>Accept full responsibility for any consequences arising from your use of the Products.</li>
-                        <li>Use the Products only for lawful personal purposes, without coercion or external compulsion.
-                        </li>
-                        <li>In extreme cases, these terms might alter corresponding to the situation you've met.
-                        </li>
-                    </ul>
-                    <p>Any misuse may result in immediate termination of your rights to use the Products.</p>
-                </div>
+                <div data-translatable="">
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                        <p>You agree to:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Use the Products only in accordance with applicable laws.</li>
+                            <li>Not use the Products to violate the terms of service of any third-party platform.</li>
+                            <li>Not attempt to interfere with, disrupt, reverse-engineer, decompile, disassemble, or
+                                gain
+                                unauthorized access to any third-party system or the Products themselves.</li>
+                            <li>Accept full responsibility for any consequences arising from your use of the Products.
+                            </li>
+                            <li>Use the Products only for lawful personal purposes, without coercion or external
+                                compulsion.
+                            </li>
+                            <li>In extreme cases, these terms might alter corresponding to the situation you've met.
+                            </li>
+                        </ul>
+                        <p>Any misuse may result in immediate termination of your rights to use the Products.</p>
+                    </div>
 
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
-                    <p>您同意：</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>仅根据适用法律使用产品。</li>
-                        <li>不得使用产品违反任何第三方平台的服务条款。</li>
-                        <li>不得试图干扰、破坏、逆向工程、反编译、反汇编或未经授权访问任何第三方系统或产品本身。</li>
-                        <li>对因使用产品而产生的任何后果承担全部责任。</li>
-                        <li>仅将产品在不受到胁迫或外部强迫情况下用于合法的个人用途。</li>
-                        <li>在极端情况下，这些条款可能会根据你所遇到的情况而有所改变。</li>
-                    </ul>
-                    <p>任何滥用行为都可能导致您使用产品的权利立即终止。</p>
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                        <p>您同意：</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>仅根据适用法律使用产品。</li>
+                            <li>不得使用产品违反任何第三方平台的服务条款。</li>
+                            <li>不得试图干扰、破坏、逆向工程、反编译、反汇编或未经授权访问任何第三方系统或产品本身。</li>
+                            <li>对因使用产品而产生的任何后果承担全部责任。</li>
+                            <li>仅将产品在不受到胁迫或外部强迫情况下用于合法的个人用途。</li>
+                            <li>在极端情况下，这些条款可能会根据你所遇到的情况而有所改变。</li>
+                        </ul>
+                        <p>任何滥用行为都可能导致您使用产品的权利立即终止。</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Third-Party Platforms -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">6. Third-Party Platforms</span>
                     <span class="lang-zh">六、第三方平台</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable="">
                     <p>The Products may interact with third-party websites or platforms. We do not own, control, or
                         endorse any third parties. Your use with third-party platforms is at your own risk — we exist to
                         empower, not to compel.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>本产品可能与第三方网站或平台互动。我们不拥有、控制或认可任何第三方。您使用第三方平台需自行承担风险——我们的宗旨是赋能用户，而非强迫用户。</p>
                 </div>
+
             </div>
 
             <!-- No Warranties -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">7. No Warranties</span>
                     <span class="lang-zh">七、无担保</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable>
                     <p>THE PRODUCTS ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>产品按“原样”提供，不提供任何形式的明示或暗示的保证。</p>
                 </div>
+
             </div>
 
             <!-- Limitation of Liability -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">8. Limitation of Liability</span>
                     <span class="lang-zh">八、责任限制</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable="">
                     <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
                         SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OF THE PRODUCTS.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>在法律允许的最大范围内，对于因您使用产品而引起的任何间接、附带、特殊或后果性损害，我们概不负责。</p>
                 </div>
+
             </div>
 
             <!-- Changes and Termination -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">9. Changes and Termination</span>
                     <span class="lang-zh">九、变更和终止</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable="">
                     <p>We may modify or discontinue the Products or these Terms at any time. Your continued use
                         constitutes acceptance of changes. Enforcement of these Terms is limited to account-related
                         actions, where applicable, to preserve user autonomy.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>我们可能随时修改或终止产品或本条款。您继续使用即表示您接受这些变更。为维护用户自主权，本条款的执行仅限于适用情况下与账户相关的操作。</p>
                 </div>
             </div>
 
             <!-- Governing Law -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">10. Governing Law</span>
                     <span class="lang-zh">十、管辖法律</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en"
+                    data-translatable="">
                     <p>These Terms are governed by the laws of the People's Republic of China.</p>
-                </div>
-
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
                     <p>本条款受中华人民共和国法律管辖。</p>
                 </div>
             </div>
@@ -300,66 +352,80 @@
 
             <!-- Authorities Reports -->
             <div class="reveal-on-scroll delay-300">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">11. Authorities Reports</span>
                     <span class="lang-zh">十一、政府及有关机构的检举</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
-                    <p>Any government or relevant agency may report any entity found to be in violation of the Terms of
-                        Service.
-                        Governments and relevant agencies must compile a list including the entity to be reported, the
-                        reasons for the report,
-                        relevant evidence, and documents identifying them, and send it to lawenforcement@tach.eu.org.
-                        Any entity initiating a report must meet all of the following requirements to proceed to the
-                        review stage:</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>Equality and Equal Rights: All members of the public within the entity or country must
-                            possess equal rights and privileges.</li>
-                        <li>Freedom of Association: All members of the public within the entity or country must have the
-                            right to freely join or leave any legal organization or trade union without discrimination.
-                        </li>
-                        <li>Freedom of Use: All members of the public within the entity or country must have the right
-                            to freely use any legal products and software without discrimination.</li>
-                        <li>Privacy: Unless a search warrant is obtained, the privacy of any member of the public within
-                            the entity or country must not be accessed in any way.</li>
-                    </ul>
-                    <p>If the above requirements are not met, the complaint will be rejected. Results of any complaint
-                        will not be communicated via email.</p>
-                </div>
 
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
-                    <p>任何政府及有关机构均可以检举任何被发现不遵守服务条款的实体。政府及有关机构需编辑一个包含要检举的实体、检举理由、相关证据及表明身份的文件的列表
-                        并发送至 lawenforcement@tach.eu.org。任何发起检举的实体需满足以下所有要求方可进行至审核阶段：</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>平等及平权：有关实体或国家内的所有大众需拥有同等的权力及权利。</li>
-                        <li>结社自由：有关实体或国家内的所有大众需拥有在不被歧视的情况下自由加入或退出任何合法组织及工会的权利。</li>
-                        <li>使用自由：有关实体或国家内的所有大众需拥有在不被歧视的情况下自由使用任何合法产品及软件的权利。</li>
-                        <li>隐私：除非是拥有搜查令，有关实体或国家内的所有大众的任何隐私均不得被以任何方式探查。</li>
-                    </ul>
-                    <p>如果没有符合以上要求，发起的检举将被拒绝。任何检举的结果均不会以电子邮件的形式回复。</p>
+                <div data-translatable="">
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                        <p>Any government or relevant agency may report any entity found to be in violation of the Terms
+                            of
+                            Service.
+                            Governments and relevant agencies must compile a list including the entity to be reported,
+                            the
+                            reasons for the report,
+                            relevant evidence, and documents identifying them, and send it to
+                            lawenforcement@tach.eu.org.
+                            Any entity initiating a report must meet all of the following requirements to proceed to the
+                            review stage:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Equality and Equal Rights: All members of the public within the entity or country must
+                                possess equal rights and privileges.</li>
+                            <li>Freedom of Association: All members of the public within the entity or country must have
+                                the
+                                right to freely join or leave any legal organization or trade union without
+                                discrimination.
+                            </li>
+                            <li>Freedom of Use: All members of the public within the entity or country must have the
+                                right
+                                to freely use any legal products and software without discrimination.</li>
+                            <li>Privacy: Unless a search warrant is obtained, the privacy of any member of the public
+                                within
+                                the entity or country must not be accessed in any way.</li>
+                        </ul>
+                        <p>If the above requirements are not met, the complaint will be rejected. Results of any
+                            complaint
+                            will not be communicated via email.</p>
+                    </div>
+
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                        <p>任何政府及有关机构均可以检举任何被发现不遵守服务条款的实体。政府及有关机构需编辑一个包含要检举的实体、检举理由、相关证据及表明身份的文件的列表
+                            并发送至 lawenforcement@tach.eu.org。任何发起检举的实体需满足以下所有要求方可进行至审核阶段：</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>平等及平权：有关实体或国家内的所有大众需拥有同等的权力及权利。</li>
+                            <li>结社自由：有关实体或国家内的所有大众需拥有在不被歧视的情况下自由加入或退出任何合法组织及工会的权利。</li>
+                            <li>使用自由：有关实体或国家内的所有大众需拥有在不被歧视的情况下自由使用任何合法产品及软件的权利。</li>
+                            <li>隐私：除非是拥有搜查令，有关实体或国家内的所有大众的任何隐私均不得被以任何方式探查。</li>
+                        </ul>
+                        <p>如果没有符合以上要求，发起的检举将被拒绝。任何检举的结果均不会以电子邮件的形式回复。</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Contact Us -->
             <div class="reveal-on-scroll delay-300 mt-16 pt-12 border-t border-white/10">
-                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6" data-translatable="">
                     <span class="lang-en">12. Contact Us</span>
                     <span class="lang-zh">十二、联系我们</span>
                 </h2>
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
-                    <p>For questions — or for quiet solidarity — contact us at contact@tach.eu.org.</p>
-                    <p class="mt-6 font-semibold">
-                        Down'sicient Studio<br>
-                        Shenzhen, China
-                    </p>
-                </div>
 
-                <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
-                    <p>如有任何疑问，或想表达默默的声援，请联系我们：contact@tach.eu.org。</p>
-                    <p class="mt-6 font-semibold">
-                        Down'sicient Studio<br>
-                        中国深圳
-                    </p>
+                <div data-translatable="">
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-en">
+                        <p>For questions — or for quiet solidarity — contact us at contact@tach.eu.org.</p>
+                        <p class="mt-6 font-semibold">
+                            Down'sicient Studio<br>
+                            Shenzhen, China
+                        </p>
+                    </div>
+
+                    <div class="prose prose-invert max-w-none text-neutral-300 leading-relaxed space-y-4 lang-zh">
+                        <p>如有任何疑问，或想表达默默的声援，请联系我们：contact@tach.eu.org。</p>
+                        <p class="mt-6 font-semibold">
+                            Down'sicient Studio<br>
+                            中国深圳
+                        </p>
+                    </div>
                 </div>
             </div>
 
