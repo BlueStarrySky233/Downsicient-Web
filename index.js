@@ -44,7 +44,7 @@ document.addEventListener("scroll", scrollNavBackground)
 
 var i18n = domI18n({
     selector: '[data-translatable]',
-    languages: ['eng', 'zhs', 'zht', 'sqv', 'akn', 'ent'],
+    languages: ['eng', 'zhs', 'zht', 'sxv', 'pox', 'ent'],
     defaultLanguage: "eng",
     separator: ' // ',
 });
