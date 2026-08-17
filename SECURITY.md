@@ -12,7 +12,9 @@ The following is a list of all versions and their support status. Please only re
 
 | Version | Support Status         |
 | ------- | ------------------ |
-| 1.0.0   | :white_check_mark: |
+| 1.0.2   | :white_check_mark: |
+| 1.0.1   | :yellow_square: |
+| 1.0.0   | :yellow_square: |
 | 1.0.0-pre-2   | :x: |
 | 1.0.0-pre   | :x: |
 | Older Versions   | :x:                |
